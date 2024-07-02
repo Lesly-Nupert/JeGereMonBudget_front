@@ -42,7 +42,8 @@
             $success = "Connexion réussie ! Redirection en cours...";
 
             setTimeout(() => {
-                window.location.href = "#/addAccount";
+                // Redirection vers la page d'ajout ou de sélection de compte
+                window.location.href = "#/addOrSelectAccount";  
             }, 1000);
         } catch (error) {
             $errorServer = "Erreur serveur, veuillez réessayer plus tard.";
