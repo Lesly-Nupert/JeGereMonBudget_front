@@ -1,5 +1,7 @@
-// * DEFINITION DES ROUTES DE L'APPLICATION
-import HomePageWithLogin from "./pages/HomePageWithLogin.svelte";
+// * DEFINE THE ROUTES OF THE APPLICATION
+// 
+import HomePage from "./pages/HomePage.svelte";
+// import Login from "./pages/Login.svelte";
 // import Signup from "./pages/Signup.svelte";
 // import AddAccount from "./pages/AddAccount.svelte";
 // import AddExpense from "./pages/AddExpense.svelte";
@@ -18,8 +20,9 @@ import HomePageWithLogin from "./pages/HomePageWithLogin.svelte";
 // import NotFound from "./pages/NotFound.svelte";
 
 export default {
-    "/": HomePageWithLogin,
-    // "/signup": Signup,
+    "/": HomePage,
+//     "/login": Login,
+//     "/signup": Signup,
 //     "/addAccount": AddAccount,
 //     "/addExpense": AddExpense,
 //     "/addIncome": AddIncome,
@@ -35,4 +38,4 @@ export default {
 //     "/contactUs ": ContactUs,
 //     "/legalNotice": LegalNotice,
 //     "*": NotFound,
-}
+};
