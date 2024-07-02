@@ -1,4 +1,7 @@
 <script>
+    // Routeur optimisé pour Single Page Application (SPA)
+    import { link } from "svelte-spa-router";
+
     import {
         email,
         password,
@@ -39,8 +42,7 @@
             $success = "Connexion réussie ! Redirection en cours...";
 
             setTimeout(() => {
-                // window.location.href = "/#";
-                window.location.reload();
+                window.location.href = "#/addAccount";
             }, 1000);
         } catch (error) {
             $errorServer = "Erreur serveur, veuillez réessayer plus tard.";
@@ -60,7 +62,7 @@
     </p>
 
     <section class="form__connection pb-5 pt-5 text-start">
-        <h2 class="text-center my-md-5 my-4 fw-normal">SE CONNECTER</h2>
+        <h2 class="text-center my-md-5 my-4 fw-normal">CONNEXION</h2>
         <form on:submit|preventDefault={handleConnection}>
             <!-- * EMAIL -->
             <div class="mb-3">
@@ -120,9 +122,7 @@
             </div>
 
             <!-- * BUTTON -->
-            <button class="btn btn-warning form-control fs-5"
-                >Soumettre</button
-            >
+            <button class="btn btn-warning form-control fs-5">Soumettre</button>
 
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $success}
@@ -159,8 +159,11 @@
 
     <p class="fs-4">
         Vous n'avez pas encore de compte ? <br /><a
-            href="#"
-            class="text-primary">Inscrivez-vous</a
+            href="/signup"
+            class="text-primary" 
+            aria-label="Accès à la page d'inscription"
+            use:link>Inscrivez-vous
+        </a
         >
     </p>
 </main>
@@ -182,9 +185,9 @@
 
     .form__connection {
         max-width: 500px;
-    } 
+    }
 
-    button:hover{
+    button:hover {
         font-weight: bolder;
     }
     .success,
