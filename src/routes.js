@@ -1,6 +1,6 @@
 // * DEFINE THE ROUTES OF THE APPLICATION
-// 
-import HomePage from "./pages/HomePage.svelte";
+
+import HomePageWithLogin from "./pages/HomePageWithLogin.svelte";
 // import Login from "./pages/Login.svelte";
 // import Signup from "./pages/Signup.svelte";
 // import AddAccount from "./pages/AddAccount.svelte";
@@ -20,7 +20,7 @@ import HomePage from "./pages/HomePage.svelte";
 // import NotFound from "./pages/NotFound.svelte";
 
 export default {
-    "/": HomePage,
+    "/": HomePageWithLogin,
 //     "/login": Login,
 //     "/signup": Signup,
 //     "/addAccount": AddAccount,
