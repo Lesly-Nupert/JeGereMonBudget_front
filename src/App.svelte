@@ -1,11 +1,8 @@
 <script>
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
-<<<<<<< Updated upstream
-=======
 
   // * Importe le routeur et les routes de l'application
->>>>>>> Stashed changes
   import Router, { location } from "svelte-spa-router";
   import routes from "./routes";
   import { beforeUpdate } from "svelte";

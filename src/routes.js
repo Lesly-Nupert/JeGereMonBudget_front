@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-// import HomePage from "./pages/Homepage.svelte";
-// import Login from "./pages/Login.svelte";
-=======
 // * DEFINITION DES ROUTES DE L'APPLICATION
 import HomePageWithLogin from "./pages/HomePageWithLogin.svelte";
->>>>>>> Stashed changes
 // import Signup from "./pages/Signup.svelte";
 // import AddAccount from "./pages/AddAccount.svelte";
 // import AddExpense from "./pages/AddExpense.svelte";
@@ -22,16 +17,9 @@ import HomePageWithLogin from "./pages/HomePageWithLogin.svelte";
 // import LegalNotice from "./pages/LegalNotice.svelte";
 // import NotFound from "./pages/NotFound.svelte";
 
-<<<<<<< Updated upstream
-// export default {
-//     "/": HomePage,
-//     "/login": Login,
-//     "/signup": Signup,
-=======
 export default {
     "/": HomePageWithLogin,
     // "/signup": Signup,
->>>>>>> Stashed changes
 //     "/addAccount": AddAccount,
 //     "/addExpense": AddExpense,
 //     "/addIncome": AddIncome,
@@ -47,4 +35,4 @@ export default {
 //     "/contactUs ": ContactUs,
 //     "/legalNotice": LegalNotice,
 //     "*": NotFound,
-// };
+}
