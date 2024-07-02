@@ -9,3 +9,6 @@ export const success = writable("");
 export const errorServer = writable("");
 export const errorInvalidEmailOrPassword = writable("");
 export const errorUsername = writable("");
+export const account_name = writable("");
+export const transaction_name = writable("");
+export const amount = writable("");
