@@ -1,5 +1,9 @@
-<!-- <script>
-    import { account_name, success, errorServer } from "../store";
+<script>
+    import {
+        accountName,
+        successAddAccount,
+        errorServerAddAccount,
+    } from "../store";
 
     // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
@@ -8,9 +12,8 @@
     async function handleAddAccount() {
         try {
             const data = {
-                account_name: $account_name,
+                account_name: $accountName,
             };
-
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}user/${userId}/addAccount`,
                 {
@@ -22,7 +25,7 @@
                     body: JSON.stringify(data),
                 },
             );
-
+            console.log(data);
             if (!response.ok) {
                 throw new Error(`Erreur HTTP : ${response.status}`);
             }
@@ -32,42 +35,87 @@
             console.log("Données soumises avec succès");
 
             // Retire le message d'erreur
-            $errorServer = "";
+            $errorServerAddAccount = "";
 
-            $success = "Ajout du compte réussi !";
+            $successAddAccount = "Ajout du compte réussi !";
 
             setTimeout(() => {
-                window.location.href = "#/";
+                window.location.href = `#/accountWithTransactions/${account.id}`;
+                window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServer = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerAddAccount =
+                "Erreur serveur, veuillez réessayer plus tard";
             console.error("Erreur réseau", error);
         }
     }
 </script>
 
-<section>
-    <h1 class="text-center text-white">Ajouter un compte</h1>
-    <form on:submit|preventDefault={handleAddAccount}>
-        <div class="mb-3">
-            <label for="account_name" class="form-label fs-5 text-white">
-                Nom du compte <span aria-hidden="true">*</span>
-            </label>
-            <input
-                bind:value={$account_name}
-                type="text"
-                class="form-control"
-                id="account_name"
-                required
-            />
-        </div>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-    </form>
-</section> -->
+<main class="text-white text-center">
+    <section class="formaddAccount pb-5 pt-5 text-start">
+        <h1 class="text-center mb-5">Ajouter un compte</h1>
+        <form on:submit|preventDefault={handleAddAccount}>
+            <div class="mb-3">
+                <label for="account_name" class="form-label fs-5">
+                    Nom du compte <span aria-hidden="true">*</span>
+                </label>
+                <input
+                    bind:value={$accountName}
+                    type="text"
+                    class="form-control"
+                    id="account_name"
+                    maxlength="30"
+                    required
+                />
+            </div>
+            <button type="submit" class="btn btn-primary form-control"
+                >Ajouter</button
+            >
 
+            <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
+            {#if $successAddAccount}
+                <div
+                    class="successAddAccount alert alert-success"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    {$successAddAccount}
+                </div>
+            {/if}
 
+            {#if $errorServerAddAccount}
+                <div
+                    class="errorServerAddAccount alert alert-danger"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    {$errorServerAddAccount}
+                </div>
+            {/if}
+        </form>
+    </section>
+</main>
 
-
-<p class="text-white">
-    test ADD account s'affiche bien 
-</p>
+<style>
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    .formaddAccount {
+        max-width: 500px;
+    }
+    .successAddAccount,
+    .errorServerAddAccount {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .btn:hover {
+        font-weight: bolder;
+    }
+</style>

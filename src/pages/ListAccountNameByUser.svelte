@@ -1,64 +1,78 @@
-<!-- <script>
-    import { onMount } from "svelte";
-
+<script>
+    // Routeur optimisé pour Single Page Application (SPA)
     import { link } from "svelte-spa-router";
-
-    // Obtention du token dans le localStorage
+    
+    // Mettre un log pour éviter le message d'avertissement vu que le paramètre n'est pas utilisé car userId est récupéré dans le localStorage.
+    export let params = {};
+    console.log(params);
+    
+    // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
-
-    // Route dynamique
-    export let params = {};
-    console.log(params.id);
-
-    // Fonction pour obtenir les noms de compte par utilisateur
-    onMount(async () => {
-    async function getAccountNameByUser() {
+    
+    // Fonction pour récupérer un compte et ses transactions
+    async function getAllAccountsWithTransactions() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/allAccountsNames`,
+                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/accounts`,
                 {
-                    method: "GET",
                     headers: {
-                        Authorization: `Bearer ${token}`,
+                        Authorization: "Bearer " + token,
                     },
                 },
             );
-
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP : ${response.status}`);
+            if (response.ok) {
+                const accounts = await response.json();
+                console.log("Réponse :", accounts);
+                return accounts;
+            } else {
+                console.error(
+                    "Erreur lors de la récupération des comptes et ses transactions associées",
+                );
             }
-
-            const accountsNames = await response.json();
-            console.log(accountsNames);
-            return accountsNames;
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
-
-});
 </script>
 
-<section>
-    <ul>
-        {#await getAccountNameByUser()}
-            <p>Chargement...</p>
-        {:then accountsNames}
-            {#each accountsNames as accountName}
-                <li><a href={`/listAccountNameByUser/${accountsNames.account_name}`} class="text-white">{accountName.account_name}</a></li>
-            {/each}
-        {:catch error}
-            <p>Erreur : {error.message}</p>
-        {/await}
-    </ul>
-</section> -->
+<main class="text-white">
+    {#await getAllAccountsWithTransactions()}
+        <p>Chargement...</p>
+    {:then accounts}
+        {#each accounts as account}
+        <a href={`#/accountWithTransactions/${account.id}`} class="text-white" use:link>
+            <p>{account.account_name}</p>
+        </a>
+        {/each}
+    {:catch error}
+        <p>Erreur : {error.message}</p>
+    {/await}
+</main>
 
 
 
 
 
-<p class="text-white">test LIST account s'affiche bien</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
