@@ -22,7 +22,7 @@ export default {
     "/": HomePageWithLogin,
     "/signup": Signup,
     "/addAccount": AddAccount,
-    "/accountWithTransactions/:id": AccountWithTransactions,
+    "/accountWithTransactions/:accountId": AccountWithTransactions,
     "/listAccountNameByUser/:userId": ListAccountNameByUser,
     "/addExpense": AddExpense,
     "/addIncome": AddIncome,

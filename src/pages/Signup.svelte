@@ -3,14 +3,14 @@
     import { link } from "svelte-spa-router";
 
     import {
-        username,
-        email,
-        password,
-        success,
-        errorServer,
-        errorPassword,
-        errorEmail,
-        errorUsername,
+        usernameSignup,
+        emailSignup,
+        passwordSignup,
+        successSignup,
+        errorServerSignup,
+        errorPasswordSignup,
+        errorEmailSignup,
+        errorUsernameSignup,
     } from "../store";
 
     // REGEX
@@ -25,38 +25,38 @@
 
     async function handleSignup() {
         // Réinitialisation des messages d'erreur
-        $errorEmail = "";
-        $errorPassword = "";
-        $errorUsername = "";
+        $errorEmailSignup = "";
+        $errorPasswordSignup = "";
+        $errorUsernameSignup = "";
 
         // Validation côté client
         // Appel des fonctions avec la valeur du store
-        if (!validateEmail($email)) {
-            $errorEmail = "ERREUR Format d'email attendu : exemple@exemple.com";
+        if (!validateEmail($emailSignup)) {
+            $errorEmailSignup = "ERREUR Format d'email attendu : exemple@exemple.com";
         }
 
-        if (!validatePassword($password)) {
-            $errorPassword =
+        if (!validatePassword($passwordSignup)) {
+            $errorPasswordSignup =
                 "ERREUR Votre mot de passe doit contenir entre 8 et 12 caractères, avec au moins une lettre majuscule, un chiffre et un caractère spécial.";
         }
 
-        if (!$username) {
-            $errorUsername = "ERREUR Veuillez remplir ce champ";
+        if (!$usernameSignup) {
+            $errorUsernameSignup = "ERREUR Veuillez remplir ce champ";
         }
         // Si des erreurs sont présentes, ne pas envoyer la requête
-        if ($errorEmail || $errorPassword) {
+        if ($errorEmailSignup || $errorPasswordSignup || $errorUsernameSignup) {
             return;
         }
 
         try {
             const data = {
-                username: $username,
-                email: $email,
-                message: $password,
+                username: $usernameSignup,
+                email: $emailSignup,
+                password: $passwordSignup,
             };
-
+ console.log("donnéees envoyées : ", data);
             const response = await fetch(
-                import.meta.env.VITE_API_BASE_URL + "contact",
+                import.meta.env.VITE_API_BASE_URL + "signup",
                 {
                     method: "POST",
                     headers: {
@@ -75,15 +75,16 @@
             console.log("Données soumises avec succès");
 
             // Retire le message d'erreur
-            $errorServer = "";
+            $errorServerSignup = "";
 
-            $success = "Inscription réussie ! Redirection en cours...";
+            $successSignup = "Inscription réussie ! Redirection en cours...";
 
             setTimeout(() => {
-                window.location.href = "#/login";
+                window.location.href = "#/";
+                window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServer = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerSignup = "Erreur serveur, veuillez réessayer plus tard";
             console.error("Erreur réseau", error);
         }
     }
@@ -92,7 +93,7 @@
 
 <main class="text-white text-center">
    
-    <section class="form__connection pb-5 pt-5 text-start">
+    <section class="formConnection pb-5 pt-5 text-start">
         <h1 class="text-center my-md-5 my-4 fw-normal">INSCRIPTION</h1>
         <form on:submit|preventDefault={handleSignup}>
 
@@ -102,14 +103,14 @@
                     Nom d'utilisateur <span aria-hidden="true">*</span>
                 </label>
                 <input
-                    bind:value={$username}
+                    bind:value={$usernameSignup}
                     type="text"
                     class="form-control"
                     id="username"
                     required
                 />
-                {#if $errorUsername}
-                    <p class="form-text fs-6 text-danger">{$errorUsername}</p>
+                {#if $errorUsernameSignup}
+                    <p class="form-text fs-6 text-danger">{$errorUsernameSignup}</p>
                 {/if}
             </div>
 
@@ -119,7 +120,7 @@
                     Email <span aria-hidden="true">*</span>
                 </label>
                 <input
-                    bind:value={$email}
+                    bind:value={$emailSignup}
                     type="email"
                     class="form-control"
                     id="email"
@@ -129,8 +130,8 @@
                     Format d'email attendu : name@exemple.com
                 </p>
             </div>
-            {#if $errorEmail}
-                <p class="form-text fs-6 text-danger">{$errorEmail}</p>
+            {#if $errorEmailSignup}
+                <p class="form-text fs-6 text-danger">{$errorEmailSignup}</p>
             {/if}
 
             <!-- * PASSWORD -->
@@ -139,7 +140,7 @@
                     Mot de passe <span aria-hidden="true">*</span>
                 </label>
                 <input
-                    bind:value={$password}
+                    bind:value={$passwordSignup}
                     type="password"
                     class="form-control"
                     id="password"
@@ -153,8 +154,8 @@
                     caractère spécial.
                 </p>
             </div>
-            {#if $errorPassword}
-                <p class="form-text fs-6 text-danger">{$errorPassword}</p>
+            {#if $errorPasswordSignup}
+                <p class="form-text fs-6 text-danger">{$errorPasswordSignup}</p>
             {/if}
 
             <!-- * CHECKBOX -->
@@ -180,24 +181,24 @@
             <button class="btn btn-warning form-control fs-5">Soumettre</button>
 
             <!-- * MESSAGE D'ERREUR SERVEUR OU DE SUCCÈS -->
-            {#if $success}
+            {#if $successSignup}
                 <div
                     class="success alert alert-success"
                     role="alert"
                     aria-live="assertive"
                 >
-                    {$success}
+                    {$successSignup}
                 </div>
             {/if}
 
            
-            {#if $errorServer}
+            {#if $errorServerSignup}
                 <div
                     class="errorServer alert alert-danger"
                     role="alert"
                     aria-live="assertive"
                 >
-                    {$errorServer}
+                    {$errorServerSignup}
                 </div>
             {/if}
         </form>
@@ -227,12 +228,8 @@
         justify-content: center;
         padding: 10px;
     }
-    .icon__euro {
-        font-size: 100px;
-        color: white;
-    }
 
-    .form__connection {
+    .formConnection {
         max-width: 500px;
     }
 

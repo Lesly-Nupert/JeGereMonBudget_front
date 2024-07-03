@@ -1,14 +1,34 @@
 import { writable } from "svelte/store";
 
-export const username = writable("");
-export const email = writable("");
-export const password = writable("");
-export const errorEmail = writable("");
-export const errorPassword = writable("");
-export const success = writable("");
-export const errorServer = writable("");
+
+
+
+
+
+// * SIGNUP
+export const usernameSignup = writable("");
+export const emailSignup = writable("");
+export const passwordSignup = writable("");
+export const errorUsernameSignup = writable("");
+export const errorEmailSignup = writable("");
+export const errorPasswordSignup = writable("");
+export const errorServerSignup = writable("");
+export const successSignup = writable("");
+
+// * LOGIN
+export const emailLogin= writable("");
+export const passwordLogin = writable("");
 export const errorInvalidEmailOrPassword = writable("");
-export const errorUsername = writable("");
-export const account_name = writable("");
+export const errorServerLogin = writable("");
+export const successLogin = writable("");
+
+// * ADD ACCOUNT
+export const accountName = writable("");
+export const successAddAccount = writable("");
+export const errorServerAddAccount = writable("");
+
+// * ADD TRANSACTION
 export const transaction_name = writable("");
 export const amount = writable("");
+
+
