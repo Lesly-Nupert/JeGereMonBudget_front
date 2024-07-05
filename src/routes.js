@@ -7,10 +7,10 @@ import AccountWithTransactions from "./pages/AccountWithTransactions.svelte";
 import ListAccountNameByUser from "./pages/ListAccountNameByUser.svelte";
 import AddExpense from "./pages/AddExpense.svelte";
 import AddIncome from "./pages/AddIncome.svelte";
-// import Expense from "./pages/Expense.svelte";
-// import Income from "./pages/Income.svelte";
-// import UpdatedExpense from "./pages/UpdatedExpense.svelte";
-// import UpdatedIncome from "./pages/UpdatedIncome.svelte";
+import Expense from "./pages/Expense.svelte";
+import Income from "./pages/Income.svelte";
+import UpdatedExpense from "./pages/UpdatedExpense.svelte";
+import UpdatedIncome from "./pages/UpdatedIncome.svelte";
 // import UserAccount from "./pages/UserAccount.svelte";
 // import UpdatedAccount from "./pages/UpdtedAccount.svelte";
 // import UpdatedPassword from "./pages/UpdatedPassword.svelte";
@@ -24,12 +24,12 @@ export default {
     "/addAccount": AddAccount,
     "/accountWithTransactions/:accountId": AccountWithTransactions,
     "/listAccountNameByUser/:userId": ListAccountNameByUser,
-    "/addExpense": AddExpense,
-    "/addIncome": AddIncome,
-//     "/expense/:id": Expense,
-//     "/income/:id": Income,
-//     "/updatedExpense/:id": UpdatedExpense,
-//     "/updatedIncome/:id": UpdatedIncome,
+    "/addExpense/:accountId": AddExpense,
+    "/addIncome/:accountId": AddIncome,
+    "/account/:accountId/expense/:id": Expense,
+    "/account/:accountId/income/:id": Income,
+    "/account/:accountId/updateExpense/:id": UpdatedExpense,
+    "/account/:accountId/updateIncome/:id": UpdatedIncome,
 //     "/userAccount/:userId": UserAccount,
 //     "/updatedAccount/:userId": UpdatedAccount,
 //     "/updatedPassword/:userId": UpdatedPassword,

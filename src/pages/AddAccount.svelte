@@ -53,11 +53,11 @@
 
 <main class="text-white text-center">
     <section class="formaddAccount pb-5 pt-5 text-start">
-        <h1 class="text-center mb-5">Ajouter un compte</h1>
+        <h1 class="text-center mb-5 fs-1 text-primary">Ajouter un compte</h1>
         <form on:submit|preventDefault={handleAddAccount}>
             <div class="mb-3">
                 <label for="account_name" class="form-label fs-5">
-                    Nom du compte <span aria-hidden="true">*</span>
+                    Entrer le nom du compte <span aria-hidden="true">*</span>
                 </label>
                 <input
                     bind:value={$accountName}
@@ -66,6 +66,7 @@
                     id="account_name"
                     maxlength="30"
                     required
+                    aria-required
                 />
             </div>
             <button type="submit" class="btn btn-primary form-control"
