@@ -1,5 +1,9 @@
-<!-- <script>
-    import { transaction_name, amount, success, errorServer } from "../store";
+<script>
+    import { incomeName, incomeAmount, successAddIncome, errorServerAddIncome } from "../store";
+
+    // Récupère le paramètre de l'URL du front (accountId)
+    export let params = {};
+    let accountId = params.accountId;
 
     // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
@@ -8,12 +12,12 @@
     async function handleAddIncome() {
         try {
             const data = {
-                transaction_name: $transaction_name,
-                amount: $amount,
+                transaction_name: $incomeName,
+                amount: $incomeAmount,
             };
 
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/addIncome`,
+                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/addIncome`,
                 {
                     method: "POST",
                     headers: {
@@ -33,71 +37,107 @@
             console.log("Données soumises avec succès");
 
             // Retire le message d'erreur
-            $errorServer = "";
+            $errorServerAddIncome = "";
 
-            $success = "Dépense ajoutée avec succès !";
+            $successAddIncome = "Revenu ajouté avec succès !";
 
             setTimeout(() => {
-                window.location.href = "#/accountWithTransactions/:id";
+                window.location.href = `#/accountWithTransactions/${accountId}`;
+                window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServer = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerAddIncome = "Erreur serveur, veuillez réessayer plus tard";
             console.error("Erreur réseau", error);
         }
     }
 </script>
 
-<section>
-    <h1 class="text-center text-white">Ajouter un revenu</h1>
-    <form on:submit|preventDefault={handleAddIncome}>
-        <div class="mb-3">
-            <label for="transaction_name" class="form-label fs-5 text-white">
-                Nom du revenu<span aria-hidden="true">*</span>
-            </label>
-            <input
-                bind:value={$transaction_name}
-                type="text"
-                class="form-control"
-                id="transaction_name"
-                required
-            />
-        </div>
-        <div class="mb-3">
-            <label for="amount" class="form-label fs-5 text-white">
-                Montant <span aria-hidden="true">*</span>
-            </label>
-            <input
-                bind:value={$amount}
-                type="number"
-                class="form-control"
-                id="amount"
-                required
-            />
-        </div>
-        <button type="submit" class="btn btn-primary form-control">Ajouter</button>
-    </form>
-</section>
+<main class="text-white text-center">
+    <section class="formaddIncome pb-5 pt-5 text-start">
+        <h1 class="text-center mb-5 fs-1 text-primary">Ajouter un revenu</h1>
+        <form on:submit|preventDefault={handleAddIncome}>
+            <div class="mb-3">
+                <label for="transaction_name" class="form-label fs-5">
+                    Entrer le nom du revenu <span aria-hidden="true">*</span>
+                </label>
+                <input
+                    bind:value={$incomeName}
+                    type="text"
+                    class="form-control"
+                    id="transaction_name"
+                    minlength="3"
+                    maxlength="30"
+                    required
+                    aria-required
+                />
+            </div>
 
+            <div class="mb-3">
+                <label for="amount" class="form-label fs-5">
+                    Entrer le montant <span aria-hidden="true">*</span>
+                </label>
+                <input
+                    bind:value={$incomeAmount}
+                    type="number"
+                    step="0.01"
+                    class="form-control"
+                    id="amount"
+                    maxlength="30"
+                    required
+                    aria-required
+                />
+            </div>
 
+            <button type="submit" class="btn btn-primary form-control"
+                >Ajouter</button
+            >
+
+            <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
+            {#if $successAddIncome}
+                <div
+                    class="successAddAccount text-success"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    {$successAddIncome}
+                </div>
+            {/if}
+
+            {#if $errorServerAddIncome}
+                <div
+                    class="errorServerAddAccount text-danger"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    {$errorServerAddIncome}
+                </div>
+            {/if}
+        </form>
+    </section>
+</main>
 
 <style>
-    h1{
-        margin: 50px;
-    }
-
-    section{
-        max-width: 500px;
+    main {
+        max-width: 1200px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
     }
-</style> -->
+    .formaddIncome {
+        max-width: 500px;
+    }
+    .successAddAccount,
+    .errorServerAddAccount {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .btn:hover {
+        font-weight: bolder;
+    }
+</style>
 
 
-
-
-
-
-
-
-<p class="text-white">
-    test ADD INCOME s'affiche bien 
-</p>

@@ -1,19 +1,23 @@
-<!-- <script>
-    import { transaction_name, amount, success, errorServer } from "../store";
+<script>
+    import { expenseName, expenseAmount, successAddExpense, errorServerAddExpense } from "../store";
+
+    // Récupère le paramètre de l'URL du front (accountId)
+    export let params = {};
+    let accountId = params.accountId;
 
     // Obtention du token et ID user dans le localStorage
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
 
-    async function handleAddExpense() {
+    async function handleAddIncome() {
         try {
             const data = {
-                transaction_name: $transaction_name,
-                amount: $amount,
+                transaction_name: $expenseName,
+                amount: $expenseAmount,
             };
 
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/addExpense`,
+                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/addExpense`,
                 {
                     method: "POST",
                     headers: {
@@ -33,62 +37,107 @@
             console.log("Données soumises avec succès");
 
             // Retire le message d'erreur
-            $errorServer = "";
+            $errorServerAddExpense = "";
 
-            $success = "Dépense ajoutée avec succès !";
+            $successAddExpense = "Dépense ajoutée avec succès !";
 
             setTimeout(() => {
-                window.location.href = "#/accountWithTransactions/:id";
+                window.location.href = `#/accountWithTransactions/${accountId}`;
+                window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServer = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerAddExpense = "Erreur serveur, veuillez réessayer plus tard";
             console.error("Erreur réseau", error);
         }
     }
 </script>
 
-<section>
-    <h1 class="text-center text-white">Ajouter une dépense</h1>
-    <form on:submit|preventDefault={handleAddExpense}>
-        <div class="mb-3">
-            <label for="transaction_name" class="form-label fs-5 text-white">
-                Nom de la dépense <span aria-hidden="true">*</span>
-            </label>
-            <input
-                bind:value={$transaction_name}
-                type="text"
-                class="form-control"
-                id="transaction_name"
-                required
-            />
-        </div>
-        <div class="mb-3">
-            <label for="amount" class="form-label fs-5 text-white">
-                Montant <span aria-hidden="true">*</span>
-            </label>
-            <input
-                bind:value={$amount}
-                type="number"
-                class="form-control"
-                id="amount"
-                required
-            />
-        </div>
-        <button type="submit" class="btn btn-primary form-control">Ajouter</button>
-    </form>
-</section>
+<main class="text-white text-center">
+    <section class="formaddExpense pb-5 pt-5 text-start">
+        <h1 class="text-center mb-5 fs-1 text-primary">Ajouter une dépense</h1>
+        <form on:submit|preventDefault={handleAddIncome}>
+            <div class="mb-3">
+                <label for="transaction_name" class="form-label fs-5">
+                    Entrer le nom de la dépense <span aria-hidden="true">*</span>
+                </label>
+                <input
+                    bind:value={$expenseName}
+                    type="text"
+                    class="form-control"
+                    id="transaction_name"
+                    maxlength="30"
+                    required
+                    aria-required
+                />
+            </div>
 
+            <div class="mb-3">
+                <label for="amount" class="form-label fs-5">
+                    Entrer le montant <span aria-hidden="true">*</span>
+                </label>
+                <input
+                    bind:value={$expenseAmount}
+                    type="number"
+                    step="0.01"
+                    class="form-control"
+                    id="amount"
+                    maxlength="30"
+                    required
+                    aria-required
+                />
+            </div>
+
+            <button type="submit" class="btn btn-primary form-control"
+                >Ajouter</button
+            >
+
+            <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
+            {#if $successAddExpense}
+                <div
+                    class="successAddExpense text-success"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    {$successAddExpense}
+                </div>
+            {/if}
+
+            {#if $errorServerAddExpense}
+                <div
+                    class="errorServerAddExpense text-danger"
+                    role="alert"
+                    aria-live="assertive"
+                >
+                    {$errorServerAddExpense}
+                </div>
+            {/if}
+        </form>
+    </section>
+</main>
 
 <style>
-    h1{
-        margin: 50px;
-    }
-    
-    section{
-        max-width: 500px;
+    main {
+        max-width: 1200px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
     }
-</style> -->
+    .formaddExpense {
+        max-width: 500px;
+    }
+    .successAddExpense,
+    .errorServerAddExpense {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .btn:hover {
+        font-weight: bolder;
+    }
+</style>
 
 
 
@@ -98,6 +147,6 @@
 
 
 
-<p class="text-white">
-    test ADD EXPENSE s'affiche bien 
-</p>
+
+
+

@@ -36,19 +36,46 @@
     }
 </script>
 
-<main class="text-white">
+<!-- * HTML + BOOTSTRAP -->
+<main>
+    <h1 class="text-center mt-5 mb-5 fs-1 text-warning">Mes comptes</h1>
     {#await getAllAccountsWithTransactions()}
         <p>Chargement...</p>
     {:then accounts}
-        {#each accounts as account}
-        <a href={`#/accountWithTransactions/${account.id}`} class="text-white" use:link>
-            <p>{account.account_name}</p>
-        </a>
-        {/each}
+        <ul >
+            {#each accounts as account}
+                <li>
+                    <a href={`#/accountWithTransactions/${account.id}`} class="text-white" use:link>
+                        <p class="fs-5"><i class="bi bi-arrow-right-short"></i> {account.account_name}</p>
+                        
+                    </a>
+                </li>
+            {/each}
+        </ul>
     {:catch error}
         <p>Erreur : {error.message}</p>
     {/await}
 </main>
+
+<!-- * CSS -->
+<style>
+    main {
+        max-width: 500px;
+        margin: 0 auto; 
+    }
+    ul {
+        list-style-type: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    p:hover{
+        color: #ffc107;
+    }
+    .bi{
+        margin-right: 15px;
+    }
+</style>
 
 
 
