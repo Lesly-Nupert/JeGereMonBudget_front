@@ -36,9 +36,10 @@
     }
 </script>
 
+{#if token}
 <!-- * HTML + BOOTSTRAP -->
 <main>
-    <h1 class="text-center mt-5 mb-5 fs-1 text-warning">Mes comptes</h1>
+    <h1 class="text-center  mb-5 fs-1 text-warning">Mes comptes</h1>
     {#await getAllAccountsWithTransactions()}
         <p>Chargement...</p>
     {:then accounts}
@@ -56,6 +57,7 @@
         <p>Erreur : {error.message}</p>
     {/await}
 </main>
+{/if}
 
 <!-- * CSS -->
 <style>

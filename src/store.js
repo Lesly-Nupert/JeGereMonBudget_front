@@ -49,3 +49,6 @@ export const errorServerDeletedIncome = writable("");
 // * DELETE EXPENSE
 export const successDeletedExpense = writable("");
 export const errorServerDeletedExpense = writable("");
+
+// * DISCONNECT
+export const successDisconnect = writable("");

@@ -53,7 +53,7 @@
 </script>
 
 <main class="text-white text-center">
-    <section class="formaddIncome pb-5 pt-5 text-start">
+    <section class="formaddIncome text-start">
         <h1 class="text-center mb-5 fs-1 text-primary">Ajouter un revenu</h1>
         <form on:submit|preventDefault={handleAddIncome}>
             <div class="mb-3">
@@ -124,7 +124,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px;
     }
     .formaddIncome {
         max-width: 500px;

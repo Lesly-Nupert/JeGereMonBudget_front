@@ -147,6 +147,7 @@
                         class="text-light"
                         href="URL_CONDITIONS_UTILISATION"
                         target="_blank"
+                        aria-label="Accèes aux conditions d'utilisation du site et sa politique de confidentialité"
                         >les conditions d'utilisation du site et sa politique de
                         confidentialité.</a
                     >
@@ -159,7 +160,7 @@
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $successLogin}
                 <div
-                    class="success alert alert-success"
+                    class="success text-success"
                     role="alert"
                     aria-live="assertive"
                 >
@@ -169,7 +170,7 @@
 
             {#if $errorInvalidEmailOrPassword}
                 <div
-                    class="errorInvalidEmailOrPassword alert alert-danger"
+                    class="errorInvalidEmailOrPassword text-danger"
                     role="alert"
                     aria-live="assertive"
                 >
@@ -179,7 +180,7 @@
 
             {#if $errorServerLogin}
                 <div
-                    class="errorServer alert alert-danger"
+                    class="errorServer text-danger"
                     role="alert"
                     aria-live="assertive"
                 >

@@ -52,7 +52,7 @@
 </script>
 
 <main class="text-white text-center">
-    <section class="formaddAccount pb-5 pt-5 text-start">
+    <section class="formaddAccount text-start">
         <h1 class="text-center mb-5 fs-1 text-primary">Ajouter un compte</h1>
         <form on:submit|preventDefault={handleAddAccount}>
             <div class="mb-3">
@@ -105,7 +105,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px;
     }
     .formaddAccount {
         max-width: 500px;
@@ -119,4 +118,5 @@
     .btn:hover {
         font-weight: bolder;
     }
+    
 </style>
