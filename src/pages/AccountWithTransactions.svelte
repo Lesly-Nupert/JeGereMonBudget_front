@@ -36,7 +36,7 @@
     }
 </script>
 
-<main class="text-white pt-5">
+<main class="text-white">
     {#await getAccountWithTransactions()}
         <p>Chargement...</p>
     {:then account}

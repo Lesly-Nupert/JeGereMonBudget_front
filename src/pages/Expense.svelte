@@ -83,7 +83,7 @@
     }
 </script>
 
-<main class="text-white pt-5">
+<main class="text-white">
     {#await getOneExpense()}
         <p>Chargement...</p>
     {:then transaction}
@@ -135,6 +135,7 @@
     main {
         max-width: 500px;
         margin: 0 auto;
+        padding: 0 30px;
     }
     div {
         display: flex;
