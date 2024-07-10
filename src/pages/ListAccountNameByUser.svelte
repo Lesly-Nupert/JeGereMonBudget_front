@@ -1,6 +1,7 @@
 <script>
     // Routeur optimisé pour Single Page Application (SPA)
     import { link } from "svelte-spa-router";
+
     
     // Mettre un log pour éviter le message d'avertissement vu que le paramètre n'est pas utilisé car userId est récupéré dans le localStorage.
     export let params = {};
@@ -36,10 +37,11 @@
     }
 </script>
 
+
 {#if token}
 <!-- * HTML + BOOTSTRAP -->
 <main>
-    <h1 class="text-center  mb-5 fs-1 text-warning">Mes comptes</h1>
+    <h1 class="text-center  mb-5 mt-2 fs-1 text-warning">Mes comptes</h1>
     {#await getAllAccountsWithTransactions()}
         <p>Chargement...</p>
     {:then accounts}
@@ -64,6 +66,9 @@
     main {
         max-width: 500px;
         margin: 0 auto; 
+    }
+    h1 {
+        font-family: 'Playwrite FR Moderne', sans-serif;
     }
     ul {
         list-style-type: none;

@@ -54,7 +54,7 @@
 
 <main class="text-white text-center">
     <section class="formaddIncome text-start">
-        <h1 class="text-center mb-5 fs-1 text-primary">Ajouter un revenu</h1>
+        <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Ajouter un revenu</h1>
         <form on:submit|preventDefault={handleAddIncome}>
             <div class="mb-3">
                 <label for="transaction_name" class="form-label fs-5">
@@ -118,12 +118,12 @@
 
 <style>
     main {
-        max-width: 1200px;
+        max-width: 600px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        padding: 0 30px;
+    }
+    h1 {
+        font-family: 'Playwrite FR Moderne', sans-serif;
     }
     .formaddIncome {
         max-width: 500px;

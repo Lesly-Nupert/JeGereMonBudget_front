@@ -34,6 +34,10 @@ export const expenseAmount = writable("");
 export const successAddExpense = writable("");
 export const errorServerAddExpense = writable("");
 
+// * UPDATE ACCOUNT
+export const successAccountNameUpdated = writable("");
+export const errorServerAccountNameUpdated = writable("");
+
 // * UPDATE EXPENSE
 export const successUpdatedExpense = writable("");
 export const errorServerUpdatedExpense = writable("");
@@ -49,6 +53,10 @@ export const errorServerDeletedIncome = writable("");
 // * DELETE EXPENSE
 export const successDeletedExpense = writable("");
 export const errorServerDeletedExpense = writable("");
+
+// * DELETE ACCOUNT
+export const successDeletedAccount = writable("");
+export const errorServerDeletedAccount = writable("");
 
 // * DISCONNECT
 export const successDisconnect = writable("");

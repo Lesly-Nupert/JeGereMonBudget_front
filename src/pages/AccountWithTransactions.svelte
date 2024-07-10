@@ -2,6 +2,8 @@
     // Routeur optimisé pour Single Page Application (SPA)
     import { link } from "svelte-spa-router";
 
+    import Header from "../components/Header.svelte";
+
     // Récupère le paramètre de l'URL du front (accountId)
     export let params = {};
     let accountId = params.accountId;
@@ -36,12 +38,15 @@
     }
 </script>
 
+
+
 <main class="text-white">
     {#await getAccountWithTransactions()}
         <p>Chargement...</p>
     {:then account}
-        <h1 class="text-center text-primary">{account.account_name}</h1>
-        <br />
+        <a class="title mb-5" aria-label="Accès aux détails du compte" href={`#/user/${userId}/account/${account.id}`}>
+            <h1 class="text-center text-primary">{account.account_name}</h1>
+        </a>
         <!-- <p class="text-center fs-6">Balance</p> -->
         <p class="text-center fs-2">
             <span class="balance fs-6 text-warning">BALANCE</span>{account.balance} €
@@ -94,15 +99,23 @@
     main {
         max-width: 700px;
         margin: 0 auto;
+        padding: 0 10px;
     }
+    .title {
+        display: block;
+        text-decoration: none;
+    }
+    
     .balance {
         display: block;
     }
     .containerAdd {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        /* justify-content: space-around; */
         flex-wrap: wrap;
         margin-bottom: 50px;
+        font-family: 'Playwrite FR Moderne', sans-serif;
     }
     li {
         list-style-type: none;
@@ -123,4 +136,5 @@
         color: black;
         font-weight: bolder;
     }
+
 </style>

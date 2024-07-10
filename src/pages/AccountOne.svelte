@@ -1,16 +1,17 @@
 <script>
     import { link } from "svelte-spa-router";
 
-    import { errorServerDeletedExpense, successDeletedExpense } from "../store";
+    import { errorServerDeletedAccount, successDeletedAccount } from "../store";
 
     export let params = {};
-
     console.log("Y A QUOI", params);
+
+    let accountIds = JSON.parse(localStorage.getItem("ACCOUNT_IDS"));
 
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
-    let accountId = params.accountId;
-    let transactionId = params.id;
+    let accountId = params.id;
+    
 
     function formatDate(dateString) {
         const date = new Date(dateString);
@@ -22,11 +23,10 @@
         return date.toLocaleDateString("fr-FR", options);
     }
 
-    // Fonction pour récupérer une dépense
-    async function getOneExpense() {
+    async function getOneAccount() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/transaction/${transactionId}/oneExpense`,
+                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/oneAccount`,
                 {
                     method: "GET",
                     headers: {
@@ -36,22 +36,22 @@
             );
 
             if (response.ok) {
-                const transaction = await response.json();
-                console.log("Réponse :", transaction);
-                return transaction;
+                const account = await response.json();
+                console.log("Réponse :", account);
+                return account;
             } else {
-                console.error("Erreur lors de la récupération du revenu");
+                console.error("Erreur lors de la récupération du compte");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
 
-    // Fonction pour supprimer une dépense
-    async function deleteExpense() {
+    // Fonction pour supprimer un revenu
+    async function deleteAccount() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/transaction/${transactionId}/deleteExpense`,
+                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/deleteAccount`,
                 {
                     method: "DELETE",
                     headers: {
@@ -61,22 +61,28 @@
             );
 
             if (response.ok) {
-                console.log("Dépense supprimée");
+                console.log("Compte supprimé");
 
                 // Retire le message d'erreur
-                $errorServerDeletedExpense = "";
+                $errorServerDeletedAccount = "";
 
-                $successDeletedExpense = "Dépense supprimée avec succès !";
+                $successDeletedAccount = "Compte suprrimé avec succès !";
 
                 setTimeout(() => {
-                    window.location.href = `#/accountWithTransactions/${accountId}`;
+                    if (accountIds.length === 0) {
+                        // Redirection vers la page d'ajout de compte
+                        window.location.href = "#/addAccount";
+                    } else {
+                        // Redirection vers la liste des comptes
+                        window.location.href = `#/listAccountNameByUser/${userId}`;
+                    }
                     window.location.reload();
                 }, 1000);
             } else {
-                console.error("Erreur lors de la suppression de la dépense");
+                console.error("Erreur lors de la suppression du compte");
             }
         } catch (error) {
-            $errorServerDeletedExpense =
+            $errorServerDeletedAccount =
                 "Erreur serveur, veuillez réessayer plus tard";
             console.error("Erreur réseau", error);
         }
@@ -84,50 +90,48 @@
 </script>
 
 <main class="text-white">
-    {#await getOneExpense()}
+    {#await getOneAccount()}
         <p>Chargement...</p>
-    {:then transaction}
-        <h1 class="text-center mb-5 mt-2 text-warning">Détails de la Dépense</h1>
-        <p class="fs-4">Nom : {transaction.transaction_name}</p>
-        <p class="fs-4">Montant : {transaction.amount}€</p>
-        <p class="fs-6">Date : {formatDate(transaction.created_at)}</p>
+    {:then account}
+        <h1 class="text-center mb-5 mt-2 text-warning">Détails du Compte</h1>
+        <p class="fs-4">Nom du compte : {account.account_name}</p>
+        <p class="fs-6">Date : {formatDate(account.created_at)}</p>
         <div>
             <a
-                href={`#/account/${accountId}/updateExpense/${transactionId}`}
-                aria-label="Modifier la dépense"
+                href={`#/user/${userId}/account/updateAccount/${accountId}`}
+                aria-label="Modifier le compte"
                 class="mb-3"
                 use:link
-                title="Modifier la dépense"
+                title="Modifier le compte"
                 ><i class="update bi bi-pencil text-warning fs-4"></i></a
             >
-
-            <form on:submit|preventDefault={deleteExpense}>
-                <button type="submit" aria-label="Supprimer la dépense" title="Supprimer la dépense"
+            <form on:submit|preventDefault={deleteAccount}>
+                <button type="submit" aria-label="Supprimer le revenu" title="Supprimer le revenu"
                     ><i class="garbage bi bi-trash text-danger fs-4"
                     ></i></button
                 >
             </form>
         </div>
     {:catch error}
-        <p>Erreur lors de la récupération de la dépense</p>
+        <p>Erreur lors de la récupération du compte</p>
     {/await}
 
-    {#if $errorServerDeletedExpense}
+    {#if $errorServerDeletedAccount}
         <p
             class="errorServerUpdatedExpense text-danger"
             role="alert"
             aria-live="assertive"
         >
-            {$errorServerDeletedExpense}
+            {$errorServerDeletedAccount}
         </p>
     {/if}
-    {#if $successDeletedExpense}
+    {#if $successDeletedAccount}
         <p
             class="successUpdatedExpense text-success"
             role="alert"
             aria-live="assertive"
         >
-            {$successDeletedExpense}
+            {$successDeletedAccount}
         </p>
     {/if}
 </main>
@@ -138,11 +142,10 @@
         margin: 0 auto;
         padding: 0 30px;
     }
-
     h1 {
         font-family: 'Playwrite FR Moderne', sans-serif;
+
     }
-    
     div {
         display: flex;
         flex-direction: column;
