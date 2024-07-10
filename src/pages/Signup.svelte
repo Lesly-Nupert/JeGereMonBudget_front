@@ -93,7 +93,7 @@
 
 <main class="text-white text-center">
    
-    <section class="formConnection pb-5 pt-5 text-start">
+    <section class="formConnection pb-5 text-start">
         <h1 class="text-center my-md-5 my-4 fw-normal">INSCRIPTION</h1>
         <form on:submit|preventDefault={handleSignup}>
 

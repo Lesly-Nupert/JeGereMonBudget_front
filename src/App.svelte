@@ -1,8 +1,9 @@
 <script>
+
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
 
-  // * Import the Router and the routes
+  // * Importation du routeur et des routes
   import Router, { location } from "svelte-spa-router";
   import routes from "./routes";
   import { beforeUpdate } from "svelte";
@@ -10,10 +11,10 @@
   beforeUpdate(() => {
     $location === "/"
       ? document.body.classList.add("homepage")
-      : document.body.classList.remove("homepage");
+      : document.body.classList.remove("homepage");  
   });
-</script>
 
+</script>
 
 <Header />
 <Router {routes} />

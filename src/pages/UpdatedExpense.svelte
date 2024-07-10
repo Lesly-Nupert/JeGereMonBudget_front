@@ -89,8 +89,8 @@
 </script>
 
 <main class="text-white text-center">
-    <section class="formUpdatedExpense pb-5 pt-5 text-start">
-        <h1 class="text-center mb-5 fs-1 text-primary">Modifier une dépense</h1>
+    <section class="formUpdatedExpense text-start">
+        <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Modifier une dépense</h1>
         <form on:submit|preventDefault={handleUpdateExpense}>
             <div class="mb-3">
                 <label for="transaction_name" class="form-label fs-5">
@@ -121,7 +121,7 @@
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary form-control"
-                    >Modifier la dépense</button
+                    >Modifier</button
                 >
             </div>
             {#if $errorServerUpdatedExpense}
@@ -148,16 +148,12 @@
 
 <style>
     main {
-        max-width: 1200px;
+        max-width: 600px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
+        padding: 0 30px;
     }
-    .formUpdatedExpense {
-        max-width: 500px;
+    h1 {
+        font-family: 'Playwrite FR Moderne', sans-serif;
     }
     .successUpdatedExpense,
     .errorServerUpdatedExpense {

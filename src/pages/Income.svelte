@@ -86,7 +86,7 @@
     {#await getOneIncome()}
         <p>Chargement...</p>
     {:then transaction}
-        <h1 class="text-center mb-5 text-warning">Détails du Revenu</h1>
+        <h1 class="text-center mb-5 mt-2 text-warning">Détails du Revenu</h1>
         <p class="fs-4">Nom : {transaction.transaction_name}</p>
         <p class="fs-4">Montant : {transaction.amount}€</p>
         <p class="fs-6">Date : {formatDate(transaction.created_at)}</p>
@@ -96,10 +96,11 @@
                 aria-label="Modifier le revenu"
                 class="mb-3"
                 use:link
+                title="Modifier le revenu"
                 ><i class="update bi bi-pencil text-warning fs-4"></i></a
             >
             <form on:submit|preventDefault={deleteIncome}>
-                <button type="submit" aria-label="Supprimer le revenu"
+                <button type="submit" aria-label="Supprimer le revenu" title="Supprimer le revenu"
                     ><i class="garbage bi bi-trash text-danger fs-4"
                     ></i></button
                 >
@@ -131,9 +132,12 @@
 
 <style>
     main {
-        max-width: 500px;
+        max-width: 600px;
         margin: 0 auto;
         padding: 0 30px;
+    }
+    h1 {
+        font-family: 'Playwrite FR Moderne', sans-serif;
     }
     div {
         display: flex;
