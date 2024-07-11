@@ -46,7 +46,7 @@
                 window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServerAddIncome = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerAddIncome = "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

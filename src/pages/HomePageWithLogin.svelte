@@ -77,7 +77,7 @@
                 }, 1000);
             }
         } catch (error) {
-            $errorServerLogin = "Erreur serveur, veuillez réessayer plus tard.";
+            $errorServerLogin = "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

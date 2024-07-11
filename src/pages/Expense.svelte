@@ -77,7 +77,7 @@
             }
         } catch (error) {
             $errorServerDeletedExpense =
-                "Erreur serveur, veuillez réessayer plus tard";
+                "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

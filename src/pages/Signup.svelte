@@ -84,7 +84,7 @@
                 window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServerSignup = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerSignup = "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

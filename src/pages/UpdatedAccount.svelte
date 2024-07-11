@@ -77,7 +77,7 @@
             }, 1000);
         } catch (error) {
             $errorServerAccountNameUpdated =
-                "Erreur serveur, veuillez réessayer plus tard";
+                "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

@@ -46,6 +46,16 @@ export const errorServerUpdatedExpense = writable("");
 export const successUpdatedIncome = writable("");
 export const errorServerUpdatedIncome = writable("");
 
+// * UPDATE USERPROFILE
+export const successUpdatedUserProfile = writable("");
+export const errorServerUpdatedUserProfile = writable("");
+
+// * UPDATE PASSWORD
+export const oldPassword = writable("");
+export const newPassword = writable("");
+export const successUpdatedPassword = writable("");
+export const errorServerUpdatedPassword = writable("");
+
 // * DELETE INCOME
 export const successDeletedIncome = writable("");
 export const errorServerDeletedIncome = writable("");
@@ -57,6 +67,10 @@ export const errorServerDeletedExpense = writable("");
 // * DELETE ACCOUNT
 export const successDeletedAccount = writable("");
 export const errorServerDeletedAccount = writable("");
+
+// * DELETE USERPROFILE
+export const successDeletedUserProfile = writable("");
+export const errorServerDeletedUserProfile = writable("");
 
 // * DISCONNECT
 export const successDisconnect = writable("");

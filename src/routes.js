@@ -13,7 +13,9 @@ import UpdatedExpense from "./pages/UpdatedExpense.svelte";
 import UpdatedIncome from "./pages/UpdatedIncome.svelte";
 import AccountOne from "./pages/AccountOne.svelte";
 import UpdatedAccount from "./pages/UpdatedAccount.svelte";
-// import UpdatedPassword from "./pages/UpdatedPassword.svelte";
+import UserProfile from "./pages/UserProfile.svelte";
+import UpdatedProfile from "./pages/UpdatedProfile.svelte";
+import UpdatedPassword from "./pages/UpdatedPassword.svelte";
 // import ContactUs from "./pages/ContactUs.svelte";
 // import LegalNotice from "./pages/LegalNotice.svelte";
 // import NotFound from "./pages/NotFound.svelte";
@@ -32,7 +34,9 @@ export default {
     "/account/:accountId/updateExpense/:id": UpdatedExpense,
     "/account/:accountId/updateIncome/:id": UpdatedIncome,
     "/user/:userId/account/updateAccount/:id": UpdatedAccount,
-//     "/updatedPassword/:userId": UpdatedPassword,
+    "/userProfile/:userId": UserProfile,
+    "/user/:userId/updateProfile": UpdatedProfile,
+    "/user/:userId/updatePassword": UpdatedPassword,
 //     "/contactUs ": ContactUs,
 //     "/legalNotice": LegalNotice,
 //     "*": NotFound,

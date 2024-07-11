@@ -82,7 +82,7 @@
             }, 1000);
         } catch (error) {
             $errorServerUpdatedExpense =
-                "Erreur serveur, veuillez réessayer plus tard";
+                "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

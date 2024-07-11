@@ -1,10 +1,10 @@
 <script>
     import { onMount } from "svelte";
     import {
-        incomeName,
-        incomeAmount,
-        successUpdatedIncome,
-        errorServerUpdatedIncome,
+        usernameSignup,
+        emailSignup,
+        successUpdatedUserProfile,
+        errorServerUpdatedUserProfile,
     } from "../store";
 
     export let params = {};
@@ -13,14 +13,12 @@
 
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
-    let accountId = params.accountId;
-    let transactionId = params.id;
 
-    // Chargemement des données de la dépense à modifier
+    // Chargemement des données du compte utilisateur à modifier
     onMount(async () => {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/transaction/${transactionId}/oneIncome`,
+                `${import.meta.env.VITE_API_BASE_URL}user/${userId}`,
                 {
                     method: "GET",
                     headers: {
@@ -28,31 +26,31 @@
                     },
                 },
             );
-
+            
             if (response.ok) {
-                const transaction = await response.json();
-                console.log("Réponse :", transaction);
+                const profileOne = await response.json();
+                console.log("Réponse :", profileOne);
                 // Cette syntaxe récupère la valeur de transaction.transaction_name et la met dans le champ input, et idem pour transaction.amount via les variables incomeName et incomeAmount du store
-                incomeName.set(transaction.transaction_name);
-                incomeAmount.set(transaction.amount);
+                usernameSignup.set(profileOne.username);
+                emailSignup.set(profileOne.email);
             } else {
-                console.error("Erreur lors de la récupération du revenu");
+                console.error("Erreur lors de la récupération du compte utilisateur");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     });
 
-    // Fonction pour modifier une dépense
-    async function handleUpdateExpense() {
+    // Fonction pour modifier un compte utilisateur
+    async function handleUpdateProfile() {
         try {
             const data = {
-                transaction_name: $incomeName,
-                amount: $incomeAmount,
+                username: $usernameSignup,
+                email: $emailSignup,
             };
 
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}user/${userId}/account/${accountId}/transaction/${transactionId}/updateIncome`,
+                `${import.meta.env.VITE_API_BASE_URL}user/update/${userId}`,
                 {
                     method: "PATCH",
                     headers: {
@@ -67,21 +65,21 @@
                 throw new Error(`Erreur HTTP : ${response.status}`);
             }
 
-            const expense = await response.json();
-            console.log(expense);
+            const profile = await response.json();
+            console.log(profile);
             console.log("Données soumises avec succès");
 
             // Retire le message d'erreur
-            $errorServerUpdatedIncome = "";
+            $errorServerUpdatedUserProfile = "";
 
-            $successUpdatedIncome = "Revenu modifié avec succès !";
+            $successUpdatedUserProfile = "Revenu modifié avec succès !";
 
             setTimeout(() => {
-                window.location.href = `#/accountWithTransactions/${accountId}`;
+                window.location.href = `#/userProfile/${userId}`;
                 window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServerUpdatedIncome =
+            $errorServerUpdatedUserProfile =
                 "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
@@ -90,56 +88,56 @@
 
 <main class="text-white text-center">
     <section class="formUpdatedIncome text-start">
-        <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Modifier un revenu</h1>
-        <form on:submit|preventDefault={handleUpdateExpense}>
+        <h1 class="text-center mb-5 mt-2 fs-2 text-info">Modifier mes identitifiants</h1>
+        <form on:submit|preventDefault={handleUpdateProfile}>
             <div class="mb-3">
-                <label for="transaction_name" class="form-label fs-5">
-                    Nom du revenu <span aria-hidden="true">*</span>
+                <label for="username" class="form-label fs-5">
+                    Nom d'utilisateur <span aria-hidden="true">*</span>
                 </label>
                 <input
-                    bind:value={$incomeName}
+                    bind:value={$usernameSignup}
                     type="text"
                     class="form-control"
-                    id="transaction_name"
+                    id="username"
                     maxlength="30"
                     required
                     aria-required
                 />
             </div>
             <div class="mb-3">
-                <label for="amount" class="form-label fs-5">
-                    Montant du revenu <span aria-hidden="true">*</span>
+                <label for="email" class="form-label fs-5">
+                    Email <span aria-hidden="true">*</span>
                 </label>
                 <input
-                    bind:value={$incomeAmount}
-                    type="number"
+                    bind:value={$emailSignup}
+                    type="email"
                     class="form-control"
-                    id="amount"
+                    id="email"
                     required
                     aria-required
                 />
             </div>
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary form-control"
+                <button type="submit" class="btn btn-info form-control"
                     >Modifier</button
                 >
             </div>
-            {#if $errorServerUpdatedIncome}
+            {#if $errorServerUpdatedUserProfile}
                 <p
-                    class="errorServerUpdatedIncome text-danger"
+                    class="errorServerUpdatedUserProfile text-danger"
                     role="alert"
                     aria-live="assertive"
                 >
-                    {$errorServerUpdatedIncome}
+                    {$errorServerUpdatedUserProfile}
                 </p>
             {/if}
-            {#if $successUpdatedIncome}
+            {#if $successUpdatedUserProfile}
                 <p
-                    class="successUpdatedIncome text-success"
+                    class="successUpdatedUserProfile text-success"
                     role="alert"
                     aria-live="assertive"
                 >
-                    {$successUpdatedIncome}
+                    {$successUpdatedUserProfile}
                 </p>
             {/if}
         </form>
@@ -158,8 +156,8 @@
     .formUpdatedIncome {
         max-width: 500px;
     }
-    .successUpdatedIncome,
-    .errorServerUpdatedIncome {
+    .successUpdatedUserProfile,
+    .errorServerUpdatedUserProfile {
         margin-top: 10px;
         padding: 10px;
         border-radius: 5px;

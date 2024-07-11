@@ -83,7 +83,7 @@
             }
         } catch (error) {
             $errorServerDeletedAccount =
-                "Erreur serveur, veuillez réessayer plus tard";
+                "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }
@@ -144,7 +144,6 @@
     }
     h1 {
         font-family: 'Playwrite FR Moderne', sans-serif;
-
     }
     div {
         display: flex;
