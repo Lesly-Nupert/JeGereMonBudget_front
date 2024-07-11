@@ -46,7 +46,7 @@
                 window.location.reload();
             }, 1000);
         } catch (error) {
-            $errorServerAddExpense = "Erreur serveur, veuillez réessayer plus tard";
+            $errorServerAddExpense = "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
         }
     }

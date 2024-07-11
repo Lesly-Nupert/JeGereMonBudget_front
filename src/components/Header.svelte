@@ -41,7 +41,7 @@
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse mt-2" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a
@@ -57,10 +57,10 @@
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mes informations</a>
+                        <a class="nav-link" href={`#/userProfile/${userId}`}>Mes informations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contactez-moi</a>
+                        <a class="nav-link" href="#/contactUs">Contactez-moi</a>
                     </li>
                 </ul>
 
@@ -70,7 +70,7 @@
                     on:click={disconnect}
                     class="btnDisconnect btn btn-danger p-1 mt-2"
                 >
-                    Déconnexion
+                    Se déconnecter
                 </button>
 
                 {#if $successDisconnect}
