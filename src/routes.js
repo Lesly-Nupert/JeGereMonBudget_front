@@ -1,7 +1,8 @@
 // * DEFINE THE ROUTES OF THE APPLICATION
 
-import HomePageWithLogin from "./pages/HomePageWithLogin.svelte";
+import HomePage from "./pages/HomePage.svelte";
 import Signup from "./pages/Signup.svelte";
+import Login from "./pages/Login.svelte";
 import AddAccount from "./pages/AddAccount.svelte";
 import AccountWithTransactions from "./pages/AccountWithTransactions.svelte";
 import ListAccountNameByUser from "./pages/ListAccountNameByUser.svelte";
@@ -21,8 +22,9 @@ import ContactUs from "./pages/ContactUs.svelte";
 // import NotFound from "./pages/NotFound.svelte";
 
 export default {
-    "/": HomePageWithLogin,
+    "/": HomePage,
     "/signup": Signup,
+    "/login": Login,
     "/addAccount": AddAccount,
     "/accountWithTransactions/:accountId": AccountWithTransactions,
     "/listAccountNameByUser/:userId": ListAccountNameByUser,

@@ -88,7 +88,7 @@
 
 <main class="text-white text-center">
     <section class="formUpdatedIncome text-start">
-        <h1 class="text-center mb-5 mt-2 fs-2 text-info">Modifier mes identitifiants</h1>
+        <h1 class="text-center mb-5 mt-2 fs-2 text-info">Modifier les identitifiants</h1>
         <form on:submit|preventDefault={handleUpdateProfile}>
             <div class="mb-3">
                 <label for="username" class="form-label fs-5">
@@ -152,6 +152,7 @@
     }
     h1 {
         font-family: 'Playwrite FR Moderne', sans-serif;
+        line-height: 1.5;
     }
     .formUpdatedIncome {
         max-width: 500px;
