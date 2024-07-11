@@ -74,3 +74,11 @@ export const errorServerDeletedUserProfile = writable("");
 
 // * DISCONNECT
 export const successDisconnect = writable("");
+
+// * CONTACT US
+export const email = writable("");
+export const message = writable("");
+export const errorEmail = writable("");
+export const errorMessage = writable("");
+export const success = writable("");
+export const errorServer = writable("");

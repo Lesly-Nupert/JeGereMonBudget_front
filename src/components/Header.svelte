@@ -57,11 +57,11 @@
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={`#/userProfile/${userId}`}>Mes informations</a>
+                        <a use:link class="nav-link" href={`#/userProfile/${userId}`}>Mes informations</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#/contactUs">Contactez-moi</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a use:link class="nav-link" href="#/contactUs">Contactez-moi</a>
+                    </li> -->
                 </ul>
 
                 <!-- Bouton de déconnexion -->
