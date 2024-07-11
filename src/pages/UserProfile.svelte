@@ -156,5 +156,6 @@
         background-color: #fff;
         color: red;
         font-weight: bolder;
+        /* border: none; */
     }
 </style>

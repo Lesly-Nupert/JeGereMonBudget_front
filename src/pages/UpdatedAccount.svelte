@@ -100,21 +100,23 @@
                     maxlength="30"
                     required
                     aria-required
-                />      
+                />   
+                
+                <button type="submit" class="btn btn-primary form-control mt-3">Modifier</button>
 
-                <div class="errorServerAccountNameUpdated text-danger mt-2">
+                <div class="errorServerAccountNameUpdated text-danger">
                     {#if $errorServerAccountNameUpdated}
                         <p>{$errorServerAccountNameUpdated}</p>
                     {/if}   
                 </div>
 
-                <div class="successAccountNameUpdated text-success mt-2">
+                <div class="successAccountNameUpdated text-success">
                     {#if $successAccountNameUpdated}
                         <p>{$successAccountNameUpdated}</p>
                     {/if}
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary form-control">Modifier</button>
+            
         </form>
     </section>
 
@@ -135,7 +137,6 @@
     .successAccountNameUpdated,
     .errorServerAccountNameUpdated {
         margin-top: 10px;
-        padding: 10px;
         border-radius: 5px;
     }
     .btn:hover {

@@ -29,9 +29,12 @@
 
 {#if token}
     <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
+        
+        <div class="container-fluid d-flex justify-content-end">
+            <a class="icon" href="#/" aria-label="Accès à la page d'accueil"><img src="public/favicon_euro.png" alt="Icone du site"></a>
+            
             <button
-                class="navbar-toggler fs-6"
+                class="navbar-toggler fs-6 "
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
@@ -83,6 +86,7 @@
                     </div>
                 {/if}
             </div>
+        
         </div>
     </nav>
 {/if}
@@ -108,6 +112,13 @@
     border: 2px solid white;
     border-radius: 10px;
     padding: 10px;
+    }
+
+    img{
+        width: 23px;
+    }
+    .icon{
+        margin-right: auto;
     }
 
 

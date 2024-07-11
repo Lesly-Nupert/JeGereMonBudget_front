@@ -4,7 +4,7 @@
 </script>
 
 <footer>
-    <p>&copy; 2024 MonBudget - <a href="#/noticeLegacy">Mentions légales</a> - <a use:link href="#/contactUs">Contactez-moi</a></p>
+    <p>&copy; 2024 MonBudget - <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#/noticeLegacy">Mentions légales</a> - <a  class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" use:link href="#/contactUs">Contact</a></p>
 </footer>
 
 <style>

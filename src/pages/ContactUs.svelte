@@ -91,7 +91,7 @@
                 aria-describedby="emailFormat"
             />
             <p class="form-text fs-6 text-light" id="emailFormat">
-                Format d'email attendu : name@exemple.com
+                Format d'email attendu : nom@exemple.com
             </p>
         </div>
 

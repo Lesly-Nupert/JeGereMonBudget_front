@@ -38,11 +38,11 @@
 
 
 
-<main class="text-white">
+<main class="text-light">
     {#await getAccountWithTransactions()}
         <p>Chargement...</p>
     {:then account}
-        <a class="title mb-4 link-underline-primary link-offset-3" aria-label="Accès aux détails du compte" href={`#/user/${userId}/account/${account.id}`}>
+        <a class="title mb-4 link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" aria-label="Accès aux détails du compte" href={`#/user/${userId}/account/${account.id}`}>
             <h1 class="text-center text-white">{account.account_name}</h1>
         </a>
         <!-- <p class="text-center fs-6">Balance</p> -->
@@ -104,9 +104,9 @@
         /* text-decoration: none; */
     }
 
-    h1:hover {
+    /* h1:hover {
         color: #0d6efd !important;
-    }
+    } */
     
     .balance {
         display: block;

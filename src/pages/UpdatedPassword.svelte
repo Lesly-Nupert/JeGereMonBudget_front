@@ -82,7 +82,7 @@
 <main class="text-light text-center">
     <section class="formUpdatedPassword text-start">
         <h1 class="text-center mb-5 mt-2 fs-2 text-info">
-            Modifier mon mot de passe
+            Modifier le mot de passe
         </h1>
         <form on:submit|preventDefault={handleUpdatePassword}>
             <div class="mb-3">
@@ -156,6 +156,10 @@
         align-items: center;
         justify-content: center;
         padding: 10px;
+    }
+
+    h1 {
+        font-family: "Playwrite FR Moderne", sans-serif;
     }
 
     .formUpdatedPassword {
