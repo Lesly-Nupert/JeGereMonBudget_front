@@ -1,5 +1,10 @@
+<script>
+    // Routeur optimisé pour Single Page Application (SPA)
+    import { link } from "svelte-spa-router";
+</script>
+
 <footer>
-    <p>&copy; 2024 MonBudget - <a href="noticeLegacy">Mentions légales</a></p>
+    <p>&copy; 2024 MonBudget - <a href="#/noticeLegacy">Mentions légales</a> - <a use:link href="#/contactUs">Contactez-moi</a></p>
 </footer>
 
 <style>
