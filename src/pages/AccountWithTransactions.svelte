@@ -77,7 +77,7 @@
 
     <!-- Affichage des transactions pour le mois sélectionné -->
     {#if selectedMonthYear}
-        <!-- <ul> -->
+        <ul>
             <!-- Boucle sur les transactions du mois et de l'année sélectionnés -->
             {#each account.transactions[selectedMonthYear] as transaction}
                 <li>
@@ -94,7 +94,7 @@
                     {/if}
                 </li>
             {/each}
-        <!-- </ul> -->
+        </ul>
     {/if}
 </main>
 
@@ -114,10 +114,13 @@
         margin-bottom: 50px;
         font-family: 'Playwrite FR Moderne', sans-serif;
     }
+    /* ca centre la liste en responsive */
+    ul{
+        padding: 0; 
+    }
     li {
         list-style-type: none;
     }
-
     .linkTransaction {
         text-decoration: none;
         flex-wrap: wrap;
