@@ -31,7 +31,7 @@
     <nav class="navbar navbar-dark bg-dark">
         
         <div class="container-fluid d-flex justify-content-end">
-            <a class="icon" href="#/" aria-label="Accès à la page d'accueil"><img src="public/favicon_euro.png" alt="Icone du site"></a>
+            <a class="icon" href="#/" aria-label="Accès à la page d'accueil"><img src="/favicon_euro.png" alt="Icone du site"></a>
             
             <button
                 class="navbar-toggler fs-6 "
