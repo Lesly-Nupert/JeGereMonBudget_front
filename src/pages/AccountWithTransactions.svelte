@@ -1,5 +1,5 @@
 <script>
-    // Routeur optimisé pour Single Page Application (SPA)
+    import { onMount } from "svelte";
     import { link } from "svelte-spa-router";
 
     // Récupère le paramètre de l'URL du front (accountId)
@@ -10,7 +10,13 @@
     let token = localStorage.getItem("TOKEN");
     let userId = localStorage.getItem("USER_ID");
 
-    // Fonction pour récupérer un compte et ses transactions
+    // Initialisation de l'objet account pour stocker les informations du compte et ses transactions 
+    let account = { account_name: "", balance: 0, transactions: {} };
+
+    // Initialisation de la variable selectedMonthYear pour le menu déroulant de sélection du mois et de l'année des transactions
+    let selectedMonthYear = "";
+
+    // Fonction pour récupérer un compte et ses transactions groupées par mois et année
     async function getAccountWithTransactions() {
         try {
             const response = await fetch(
@@ -19,78 +25,77 @@
                     headers: {
                         Authorization: "Bearer " + token,
                     },
-                },
+                }
             );
             if (response.ok) {
-                const account = await response.json();
-                console.log("Réponse :", account);
-                return account;
+                const accountData = await response.json();
+                account = accountData;
+                // Vérifie s'il y a des transactions dans l'objet account.transactions
+                if (Object.keys(account.transactions).length > 0) {
+                    // Récupère la première clé de l'objet account.transactions et la stocke dans selectedMonthYear
+                    selectedMonthYear = Object.keys(account.transactions)[0];
+                }
             } else {
-                console.error(
-                    "Erreur lors de la récupération d'un compte et ses transactions",
-                );
+                console.error("Erreur lors de la récupération des transactions");
             }
         } catch (error) {
             console.error("Erreur réseau", error);
         }
     }
+    // Appel de la fonction pour récupérer le compte et ses transactions au chargement de la page.
+    onMount(() => {
+        getAccountWithTransactions();
+    });
 </script>
 
-
-
 <main class="text-light">
-    {#await getAccountWithTransactions()}
-        <p>Chargement...</p>
-    {:then account}
-        <a class="title mb-4 link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" aria-label="Accès aux détails du compte" href={`#/user/${userId}/account/${account.id}`}>
-            <h1 class="text-center text-white">{account.account_name}</h1>
-        </a>
-        <!-- <p class="text-center fs-6">Balance</p> -->
-        <p class="text-center fs-2">
-            <span class="balance fs-6 text-warning">BALANCE</span>{account.balance} €
-        </p>
+    <!-- Affichage du nom du compte -->
+    <a class="title mb-4 link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" aria-label="Accès aux détails du compte" href={`#/user/${userId}/account/${account.id}`}>
+        <h1 class="text-center text-light" aria-label="Titre du compte">{account.account_name}</h1>
+    </a>
+    <!-- Affichage du solde du compte -->
+    <p class="text-center fs-3 text-warning" aria-label="Balance du compte">
+        <span>{account.balance}</span>€
+    </p>
+    
+    <!-- Menu déroulant pour sélectionner le mois et l'année -->
+    <div class="selectorMonthYear text-center">
+        <label for="monthYear">Sélectionner un mois :</label>
+        <!-- Utilisation de la directive bind pour lier la valeur du select à la variable selectedMonthYear -->
+        <select id="monthYear" bind:value={selectedMonthYear}>
+            <!-- Boucle each pour créer une option pour chaque clé dans l'objet transactions -->
+            {#each Object.keys(account.transactions) as monthYear}
+                <option value={monthYear}>{monthYear}</option>
+            {/each}
+        </select>
+    </div>
 
-        <div class="containerAdd">
-            <a
-                class="btn btn-primary"
-                href={`/addIncome/${accountId}`}
-                use:link>Ajouter un revenu</a
-            >
-            <a
-                class="btn btn-primary"
-                href={`/addExpense/${accountId}`}
-                use:link>Ajouter une dépense</a
-            >
-        </div>
+    <div class="containerAdd">
+        <a class="btn btn-primary" href={`/addIncome/${accountId}`} aria-label="Accès au formulaire d'ajout d'un revenu" use:link>Ajouter un revenu</a>
+        <a class="btn btn-primary" href={`/addExpense/${accountId}`} aria-label="Accès au formulaire d'ajout d'une dépense" use:link>Ajouter une dépense</a>
+    </div>
 
+    <!-- Affichage des transactions pour le mois sélectionné -->
+    {#if selectedMonthYear}
         <!-- <ul> -->
-        {#each account.transactions as transaction}
-            <li>
-                {#if transaction.type === "revenus"}
-                    <a
-                        class="linkTransaction btn btn-outline-light"
-                        aria-label="Détails du revenu"
-                        href={`#/account/${accountId}/income/${transaction.id}`}
-                    >
-                        <span>{transaction.transaction_name}</span>
-                        <span>{transaction.amount}€</span>
-                    </a>
-                {:else if transaction.type === "depenses"}
-                    <a
-                        class="linkTransaction btn btn-outline-light"
-                        aria-label="Détails de la dépense"
-                        href={`#/account/${accountId}/expense/${transaction.id}`}
-                    >
-                        <span>{transaction.transaction_name}</span>
-                        <span>-{transaction.amount}€</span>
-                    </a>
-                {/if}
-            </li>
-        {/each}
+            <!-- Boucle sur les transactions du mois et de l'année sélectionnés -->
+            {#each account.transactions[selectedMonthYear] as transaction}
+                <li>
+                    {#if transaction.type === "revenus"}
+                        <a class="linkTransaction btn btn-outline-light" aria-label="Détails du revenu" href={`#/account/${accountId}/income/${transaction.id}`}>
+                            <span>{transaction.transaction_name}</span>
+                            <span>{transaction.amount}€</span>
+                        </a>
+                    {:else if transaction.type === "depenses"}
+                        <a class="linkTransaction btn btn-outline-light" aria-label="Détails de la dépense" href={`#/account/${accountId}/expense/${transaction.id}`}>
+                            <span>{transaction.transaction_name}</span>
+                            <span>-{transaction.amount}€</span>
+                        </a>
+                    {/if}
+                </li>
+            {/each}
         <!-- </ul> -->
-    {:catch error}
-        <p>Erreur : {error.message}</p>
-    {/await}
+    {/if}
 </main>
 
 <style>
@@ -101,20 +106,10 @@
     }
     .title {
         display: block;
-        /* text-decoration: none; */
-    }
-
-    /* h1:hover {
-        color: #0d6efd !important;
-    } */
-    
-    .balance {
-        display: block;
     }
     .containerAdd {
         display: flex;
         justify-content: space-between;
-        /* justify-content: space-around; */
         flex-wrap: wrap;
         margin-bottom: 50px;
         font-family: 'Playwrite FR Moderne', sans-serif;
@@ -138,5 +133,10 @@
         color: black;
         font-weight: bolder;
     }
-
+    .selectorMonthYear {
+        margin-bottom: 20px;
+    }
+    .selectorMonthYear label {
+        margin-right: 10px;
+    }
 </style>

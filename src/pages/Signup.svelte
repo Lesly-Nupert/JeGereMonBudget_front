@@ -80,7 +80,7 @@
             $successSignup = "Inscription réussie ! Redirection en cours...";
 
             setTimeout(() => {
-                window.location.href = "#/";
+                window.location.href = "#/login";
                 window.location.reload();
             }, 1000);
         } catch (error) {
