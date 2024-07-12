@@ -19,7 +19,7 @@ import UpdatedProfile from "./pages/UpdatedProfile.svelte";
 import UpdatedPassword from "./pages/UpdatedPassword.svelte";
 import ContactUs from "./pages/ContactUs.svelte";
 // import LegalNotice from "./pages/LegalNotice.svelte";
-// import NotFound from "./pages/NotFound.svelte";
+import NotFound from "./pages/NotFound.svelte";
 
 export default {
     "/": HomePage,
@@ -41,5 +41,5 @@ export default {
     "/user/:userId/updatePassword": UpdatedPassword,
     "/contactUs": ContactUs,
 //     "/legalNotice": LegalNotice,
-//     "*": NotFound,
+    "*": NotFound,
 };
