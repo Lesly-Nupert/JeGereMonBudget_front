@@ -5,7 +5,7 @@
 
 <footer>
     <p>
-        &copy; 2024 MonBudget - <a
+        &copy; 2024 JeGereMonBudget - <a
             use:link
             class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
             href="#/legalNotice"
