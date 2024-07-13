@@ -1,6 +1,6 @@
-# MonBudget
+# JeGereMonBudget
 ***
-MonBudget est une application web qui permet de suivre facilement ses revenus et ses dépenses afin de mieux gérer son budget.
+JeGereMonBudget est une application web qui permet de suivre facilement ses revenus et ses dépenses afin de mieux gérer son budget.
 
 Le site s'adapte à tous les supports visuels (mobile, tablette, bureau) et est accessible.
 
