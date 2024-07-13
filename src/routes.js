@@ -1,5 +1,4 @@
 // * DEFINE THE ROUTES OF THE APPLICATION
-
 import HomePage from "./pages/HomePage.svelte";
 import Signup from "./pages/Signup.svelte";
 import Login from "./pages/Login.svelte";
@@ -18,7 +17,7 @@ import UserProfile from "./pages/UserProfile.svelte";
 import UpdatedProfile from "./pages/UpdatedProfile.svelte";
 import UpdatedPassword from "./pages/UpdatedPassword.svelte";
 import ContactUs from "./pages/ContactUs.svelte";
-// import LegalNotice from "./pages/LegalNotice.svelte";
+import LegalNotice from "./pages/LegalNotice.svelte";
 import NotFound from "./pages/NotFound.svelte";
 
 export default {
@@ -40,6 +39,6 @@ export default {
     "/user/:userId/updateProfile": UpdatedProfile,
     "/user/:userId/updatePassword": UpdatedPassword,
     "/contactUs": ContactUs,
-//     "/legalNotice": LegalNotice,
+    "/legalNotice": LegalNotice,
     "*": NotFound,
 };

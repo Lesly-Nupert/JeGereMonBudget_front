@@ -22,27 +22,42 @@
             window.location.href = "#/";
             window.location.reload();
         }, 1000);
-
     }
 
+    // Fonction pour vérifier si le menu est ouvert ou fermé
+    let isOpen = false;
+
+    function toggleMenu() {
+        isOpen = !isOpen;
+    }
 </script>
+
+
+
+<!-- HTML -->
 
 {#if token}
     <nav class="navbar navbar-dark bg-dark">
-        
         <div class="container-fluid d-flex justify-content-end">
-            <a class="icon" href="#/" aria-label="Accès à la page d'accueil"><img src="/favicon_euro.png" alt="Icone du site"></a>
-            
+            <a class="icon" href="#/" aria-label="Accès à la page d'accueil" title="Accueil"
+                ><img src="/favicon_euro.png" alt="Icone du site" /></a
+            >
+
             <button
-                class="navbar-toggler fs-6 "
+                class="burger navbar-toggler fs-6"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
-                aria-expanded="false"
+                aria-expanded={isOpen}
                 aria-label="Toggle navigation"
+                on:click={toggleMenu}
             >
-                <span class="navbar-toggler-icon"></span>
+                {#if isOpen}
+                    <span class="text-danger">Fermer</span>
+                {:else}
+                    <span class="navbar-toggler-icon"></span>
+                {/if}
             </button>
             <div class="collapse navbar-collapse mt-2" id="navbarNav">
                 <ul class="navbar-nav">
@@ -60,11 +75,12 @@
                         >
                     </li>
                     <li class="nav-item">
-                        <a use:link class="nav-link" href={`#/userProfile/${userId}`}>Mes informations</a>
+                        <a
+                            use:link
+                            class="nav-link"
+                            href={`#/userProfile/${userId}`}>Mes informations</a
+                        >
                     </li>
-                    <!-- <li class="nav-item">
-                        <a use:link class="nav-link" href="#/contactUs">Contactez-moi</a>
-                    </li> -->
                 </ul>
 
                 <!-- Bouton de déconnexion -->
@@ -86,10 +102,13 @@
                     </div>
                 {/if}
             </div>
-        
         </div>
     </nav>
 {/if}
+
+
+
+<!-- STYLE -->
 
 <style>
     button {
@@ -104,22 +123,24 @@
         font-weight: bolder;
     }
     .collapse {
-    position: fixed;
-    top: 40px;
-    width: auto;
-    z-index: 10;
-    background-color:black; 
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 10px;
+        position: fixed;
+        top: 40px;
+        width: auto;
+        z-index: 10;
+        background-color: black;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 10px;
     }
 
-    img{
+    img {
         width: 23px;
     }
-    .icon{
+    .icon {
         margin-right: auto;
     }
 
-
+    /* .burger {
+        color: red;
+    } */
 </style>

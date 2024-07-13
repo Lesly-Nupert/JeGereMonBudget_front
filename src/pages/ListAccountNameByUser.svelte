@@ -48,7 +48,7 @@
         <ul >
             {#each accounts as account}
                 <li>
-                    <a href={`#/accountWithTransactions/${account.id}`} class="text-white" use:link>
+                    <a href={`#/accountWithTransactions/${account.id}`} class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" use:link>
                         <p class="fs-5"><i class="bi bi-arrow-right-short"></i> {account.account_name}</p>
                         
                     </a>
@@ -73,12 +73,7 @@
     ul {
         list-style-type: none;
     }
-    a{
-        text-decoration: none;
-    }
-    p:hover{
-        color: #ffc107;
-    }
+   
     .bi{
         margin-right: 15px;
     }
