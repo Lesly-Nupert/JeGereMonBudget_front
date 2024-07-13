@@ -16,6 +16,7 @@
     // Initialisation de la variable selectedMonthYear pour le menu déroulant de sélection du mois et de l'année des transactions
     let selectedMonthYear = "";
 
+
     // Fonction pour récupérer un compte et ses transactions groupées par mois et année
     async function getAccountWithTransactions() {
         try {
@@ -54,7 +55,7 @@
         <h1 class="text-center text-light" aria-label="Titre du compte">{account.account_name}</h1>
     </a>
     <!-- Affichage du solde du compte -->
-    <p class="text-center fs-3 text-warning" aria-label="Balance du compte">
+    <p class="text-center fs-3 text-info" aria-label="Balance du compte">
         <span>{account.balance}</span>€
     </p>
     
@@ -114,7 +115,7 @@
         margin-bottom: 50px;
         font-family: 'Playwrite FR Moderne', sans-serif;
     }
-    /* ca centre la liste en responsive */
+    /* ca centre bien la liste en responsive */
     ul{
         padding: 0; 
     }
@@ -125,16 +126,19 @@
         text-decoration: none;
         flex-wrap: wrap;
     }
+
     a {
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
     }
+    
     .btn-primary:hover {
-        background-color: #ffc107;
         border-color: #ffc107;
         color: black;
         font-weight: bolder;
+        transition: background 400ms ease-in-out;
+        background-image: linear-gradient(45deg, #ffc107 30%, transparent 70%);
     }
     .selectorMonthYear {
         margin-bottom: 20px;

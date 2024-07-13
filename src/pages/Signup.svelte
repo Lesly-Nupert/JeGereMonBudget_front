@@ -169,12 +169,14 @@
                 <label class="form-check-label ms-2" for="checkbox">
                     J'accepte <a
                         class="text-light"
-                        href="URL_CONDITIONS_UTILISATION"
+                        href="#/legalNotice"
                         target="_blank"
-                        >les conditions d'utilisation du site et sa politique de
-                        confidentialité</a
+                        >les conditions d'utilisation et la politique de
+                        confidentialité du site</a
                     >.
                 </label>
+
+                
             </div>
 
             <!-- * BUTTON -->
@@ -205,9 +207,9 @@
     </section>
 
     <p class="fs-4">
-        Vous avez déjà un compte ? <br /><a
-            href="/"
-            class="text-primary" 
+        Vous avez déjà un compte ? <a
+            href="/login"
+            class="d-block text-light link-offset-2 link-underline link-underline-opacity-100" 
             aria-label="Accès à la page d'inscription"
             use:link>Connectez-vous
         </a

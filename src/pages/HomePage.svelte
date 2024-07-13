@@ -4,7 +4,7 @@
 </script>
 
 <main class="text-white text-center">
-    <i class="iconEuro bi bi-currency-euro text-warning"></i>
+    <i class="iconEuro bi bi-currency-euro text-warning" aria-hidden="true"></i>
 
     <h1 class="fs-1 text-primary m-4">Bienvenue dans MonBudget !</h1>
 
@@ -13,23 +13,19 @@
         dépenses
     </p>
 
-    <p>
-        <a
-            href="#/login"
-            class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-3"
-            aria-label="Accès au formulaire de connexion">Connexion</a
-        >
-    </p>
+    <a
+        use:link
+        href="#/login"
+        class="btn btn-primary"
+        aria-label="Accès au formulaire de connexion">Se connecter</a
+    >
 
-    <p>ou</p>
-
-    <p>
-        <a
-            href="#/signup"
-            class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-3"
-            aria-label="Accès au formulaire d'inscription">Inscription</a
-        >
-    </p>
+    <a
+        use:link
+        href="#/signup"
+        class="btn btn-primary"
+        aria-label="Accès au formulaire d'inscription">S'inscrire</a
+    >
 </main>
 
 <style>
@@ -46,12 +42,25 @@
         font-size: 100px;
         color: white;
     }
-    
+
     h1 {
         font-family: "Playwrite FR Moderne", sans-serif;
         line-height: 1.5;
     }
     .introAppli {
         line-height: 1.5;
+    }
+    a {
+        width: 200px;
+        border-radius: 100px;
+        padding: 10px;
+        margin: 20px;
+    }
+    a:hover {
+        border-color: #ffc107;
+        color: black;
+        font-weight: bold;
+        transition: background 400ms ease-in-out;
+        background-image: linear-gradient(45deg, #ffc107 30%, transparent 70%);
     }
 </style>

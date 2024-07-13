@@ -1,11 +1,8 @@
 <main class="p-5">
-    <i class="iconEuro bi bi-currency-euro text-warning"></i>
+    <i class="iconEuro bi bi-currency-euro text-warning" aria-hidden="true"></i>
 
     <h1 class="text-light text-center mb-5 display-1">Page introuvable</h1>
-    <!-- <p class="text-center text-light fs-1">
-        La page que vous cherchez n'existe pas.
-    </p> -->
-    ¨
+
     <p class="text-center text-light fs-1">
         <a
             href="/"
@@ -15,9 +12,11 @@
         >
     </p>
 
-    <i class="triangle bi bi-exclamation-triangle text-danger"></i>
+    <i
+        class="triangle bi bi-exclamation-triangle text-danger"
+        aria-hidden="true"
+    ></i>
 </main>
- 
 
 <style>
     .iconEuro {

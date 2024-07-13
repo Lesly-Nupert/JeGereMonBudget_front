@@ -1,7 +1,5 @@
 <script>
-    // L'affichage des messages d'erreur et de succès ne fonctionnait pas correctement. Pour résoudre ce problème, j'ai décidé de mettre toutes les variables dans un store Svelte.
-    // Elles sont accessibles globalement et sont également réactives (mise à jour de l'interface utilisateur en fonction de leur valeur en temps réel)
-    // Habituellement je ne rencontre aucun souci avec les variables locales, mais dans ce cas précis, j'ai préféré utiliser un store pour éviter les problèmes d'affichage. Peut-être que c'est à cause de Bootstrap que j'utilise pour la première fois, je ne sais pas.
+    // Importation des variables du store
     import {
         email,
         message,
@@ -12,8 +10,6 @@
     } from "../store";
 
     // REGEX
-    // email ici est le paramètre de la fonction et $email dans l'appel de la fonction plus bas est la variable du store avec la valeur de l'email saisie par l'utilisateur. Pas de conflit de nommage, car ils sont dans des scopes différents (fonction et store). Donc pas de $ ici.
-    // J'ai testé les deux facons avec et sans $ et les deux fonctionnaient correctement donc j'ai demandé à gpt de m'expliquer la différence entre les deux.
     function validateEmail(email) {
         let emailRegex = /\b[\w\.-]+@[\w\.-]+\.\w{2,10}\b/;
         return emailRegex.test(email);
@@ -58,7 +54,7 @@
             }
 
             const json = await response.json();
-            console.log(json);
+            // console.log(json);
             console.log("Données soumises avec succès");
 
             // Retire le message d'erreur
@@ -67,6 +63,7 @@
             $success = "Message envoyé avec succès";
 
             setTimeout(() => {
+                window.location.href = "#/";
                 window.location.reload();
             }, 2000);
         } catch (error) {

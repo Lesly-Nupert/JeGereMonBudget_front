@@ -85,14 +85,6 @@
 
 
 <main class="text-white text-center">
-    <!-- <i class="iconEuro bi bi-currency-euro text-warning"></i>
-
-    <h1 class="fs-1 text-primary m-4">Bienvenue dans MonBudget !</h1>
-
-    <p class="introAppli fs-4">
-        MonBudget - Une application pour suivre facilement ses revenus et ses
-        dépenses
-    </p> -->
 
     <section class="formConnection pb-5 pt-5 text-start">
         <h1 class="text-center my-md-5 my-4 fw-normal">CONNEXION</h1>
@@ -135,26 +127,6 @@
                 </p>
             </div>
 
-            <!-- * CHECKBOX -->
-            <div class="container__legacy d-flex mb-3 mt-4">
-                <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="checkbox"
-                    required
-                />
-                <label class="form-check-label ms-2" for="checkbox">
-                    J'accepte <a
-                        class="text-light"
-                        href="URL_CONDITIONS_UTILISATION"
-                        target="_blank"
-                        aria-label="Accèes aux conditions d'utilisation du site et sa politique de confidentialité"
-                        >les conditions d'utilisation du site et sa politique de
-                        confidentialité.</a
-                    >
-                </label>
-            </div>
-
             <!-- * BUTTON -->
             <button class="btn btn-warning form-control fs-5">Soumettre</button>
 
@@ -192,9 +164,9 @@
     </section>
 
     <p class="fs-4">
-        Vous n'avez pas encore de compte ? <br /><a
+        Vous n'avez pas encore de compte ? <a
             href="/signup"
-            class="text-primary"
+            class="d-block text-light link-offset-2 link-underline link-underline-opacity-100"
             aria-label="Accès à la page d'inscription"
             use:link
             >Inscrivez-vous
@@ -212,11 +184,6 @@
         justify-content: center;
         padding: 10px;
     }
-    /* .iconEuro {
-        font-size: 100px;
-        color: white;
-    } */
-
     .formConnection {
         max-width: 500px;
         margin-top: -50px;
@@ -232,4 +199,5 @@
         padding: 10px;
         border-radius: 5px;
     }
+    
 </style>
