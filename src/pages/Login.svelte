@@ -128,7 +128,7 @@
             </div>
 
             <!-- * BUTTON -->
-            <button class="btn btn-warning form-control fs-5">Soumettre</button>
+            <button class="btn btn-primary form-control fs-5">Soumettre</button>
 
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $successLogin}
@@ -176,7 +176,7 @@
 
 <style>
     main {
-        max-width: 1200px;
+        max-width: 600px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;

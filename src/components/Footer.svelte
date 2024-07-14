@@ -5,7 +5,7 @@
 
 <footer>
     <p>
-        &copy; 2024 JeGereMonBudget - <a
+        <a
             use:link
             class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
             href="#/legalNotice"
@@ -27,6 +27,9 @@
             title="Accueil"
         ><i class="bi bi-house-door"></i></a
         >
+    </p>
+    <p>
+        &copy; 2024 JeGereMonBudget 
     </p>
 </footer>
 
