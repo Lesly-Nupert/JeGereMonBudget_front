@@ -131,7 +131,7 @@
             </label>
         </div>
 
-        <button class="btn">Soumettre</button>
+        <button class="btn text-bg-info">Soumettre</button>
 
         {#if $success}
             <div
@@ -162,13 +162,12 @@
     }
 
     .btn:hover {
-        background-color: #0dcaf0;
-        color: black;
+        background-color: #111 !important;
+        color: #0dcaf0 !important;
+        border: 1px solid #0dcaf0 !important;
     }
 
     .btn {
-        background-color: #fff;
-        border: 2px solid #0dcaf0;
         font-weight: bold;
     }
 
