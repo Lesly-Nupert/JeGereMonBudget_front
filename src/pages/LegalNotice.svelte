@@ -4,11 +4,11 @@
           <section class="fs-5">
               <h2 class="display-2 text-info">Éditeur</h2>
               <p>Lesly Nupert</p>
-              <p>Email: @gmail.com</p>
+              <p>Contact : <a href="https://jegeremonbudget.netlify.app/#/contactUs">https://jegeremonbudget.netlify.app/#/contactUs</a></p>
           </section>
 
           <section class="fs-5">
-              <h2 class="display-2 text-info">Hebergement</h2>
+              <h2 class="display-2 text-info">Hébergement</h2>
               <p>Le frontend est hébergé par Netlify, Inc</p>
               <p>512 2nd Street, Fl 2
                 San Francisco, CA 94107</p>
@@ -54,7 +54,7 @@
             Conformément à la loi Informatique et libertés du 6 janvier 1978 modifiée, vous disposez
             d'un droit d'accès, de rectification, de modification et de suppression des données qui
             vous concernent. Vous pouvez exercer ce droit en envoyant un courrier électronique à
-            l'adresse suivante : <a href="mailto:@gmail.com" class="text-info">@gmail.com</a>
+            l'adresse suivante : <a href="https://jegeremonbudget.netlify.app/#/contactUs" class="text-info">https://jegeremonbudget.netlify.app/#/contactUs</a>
           </p>
       </section>
       
