@@ -5,6 +5,8 @@
 
 <footer>
     <p>
+        &copy; 2024 JeGereMonBudget 
+        -
         <a
             use:link
             class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
@@ -28,9 +30,7 @@
         ><i class="bi bi-house-door"></i></a
         >
     </p>
-    <span class="d-block">
-        &copy; 2024 JeGereMonBudget 
-    </span>
+    
 </footer>
 
 <style>
@@ -38,9 +38,7 @@
         background-color: #1b1b1b;
         color: white;
         text-align: center;
-        height: auto;
-    }
-    footer a {
-        color: white;
+        font-size: 11px;
+        padding: 5px;
     }
 </style>
