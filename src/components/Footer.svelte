@@ -27,10 +27,10 @@
             title="Accueil"
         ><i class="bi bi-house-door"></i></a
         >
-        <span class="d-block">
-            &copy; 2024 JeGereMonBudget 
-        </span>
     </p>
+    <span class="d-block">
+        &copy; 2024 JeGereMonBudget 
+    </span>
 </footer>
 
 <style>
@@ -38,6 +38,7 @@
         background-color: #333;
         color: white;
         text-align: center;
+        height: auto;
     }
     footer a {
         color: white;
