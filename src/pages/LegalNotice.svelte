@@ -1,5 +1,5 @@
 <main class="legalNotice text-light">
-    <h1 class="display-1 text-center mb-5">Mentions légales</h1>
+    <h1 class="display-1 text-center mb-5 mt-5">Mentions légales</h1>
     
           <section class="fs-5">
               <h2 class="display-2 text-info">Éditeur</h2>
@@ -59,7 +59,7 @@
       </section>
       
       <section class="fs-5">
-          <p>Rédigé par <a href="https://xxxxx.netlify.app/" class="text-info">https://xxx.netlify.app/</a></p>
+          <p>Rédigé par <a href="https://jegeremonbudget.netlify.app/" class="text-info">https://jegeremonbudget.netlify.app/</a></p>
       </section>
     
   </main>

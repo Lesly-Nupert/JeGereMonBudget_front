@@ -27,9 +27,9 @@
             title="Accueil"
         ><i class="bi bi-house-door"></i></a
         >
-    </p>
-    <p>
-        &copy; 2024 JeGereMonBudget 
+        <span class="b-block">
+            &copy; 2024 JeGereMonBudget 
+        </span>
     </p>
 </footer>
 
