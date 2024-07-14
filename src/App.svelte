@@ -2,7 +2,7 @@
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
 
-  // * Importation du routeur et des routes
+  // * Importation du routeur et des route
   import Router, { location } from "svelte-spa-router";
   import routes from "./routes";
   import { beforeUpdate } from "svelte";
