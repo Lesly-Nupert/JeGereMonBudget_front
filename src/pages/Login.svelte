@@ -87,7 +87,7 @@
 <main class="text-white text-center">
 
     <section class="formConnection pb-5 pt-5 text-start">
-        <h1 class="text-center my-md-5 my-4 fw-normal">CONNEXION</h1>
+        <h1 class="text-center my-md-5 my-4 fw-normal text-primary">Connexion</h1>
         <form on:submit|preventDefault={handleConnection}>
             <!-- * EMAIL -->
             <div class="mb-3">
@@ -184,6 +184,9 @@
         justify-content: center;
         padding: 10px;
     }
+    h1 {
+        font-family: 'Playwrite FR Moderne', sans-serif;
+    }
     .formConnection {
         max-width: 500px;
         margin-top: -50px;
@@ -199,5 +202,6 @@
         padding: 10px;
         border-radius: 5px;
     }
+
     
 </style>
