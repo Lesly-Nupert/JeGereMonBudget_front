@@ -35,7 +35,7 @@
 
 <style>
     footer {
-        background-color: #333;
+        background-color: #1b1b1b;
         color: white;
         text-align: center;
         height: auto;
