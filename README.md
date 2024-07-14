@@ -7,8 +7,9 @@ Le site s'adapte à tous les supports visuels (mobile, tablette, bureau) et est 
 L'accès aux données se fait via l'API Rest MonBudgetAPI.
 
 ## Capture d'écran
-![Capture page d'accueil du site](/public/img_MonBudget3.png)
-<!-- ![Capture page d'accueil du site](/public/img_MonBudget2.png) -->
+![Capture page d'accueil du site](/public/img_JeGereMonBudget.png)
+
+![Capture page d'accueil du site](/public/img_JeGereMonBudget2.png)
 
 ## Technologies et Bibliothèques utilisées
 ***
