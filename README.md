@@ -21,6 +21,10 @@ L'accès aux données se fait via l'API Rest MonBudgetAPI.
 
 * HTML 5: Langage de balisage pour structurer le contenu web.
 
+* Bootstrap: Framework CSS pour sites et applications web responsives
+
+* Bootstrap-icons: Bibliothèque d'icônes
+
 * CSS: Langage pour le style des pages web.
 
 * FETCH: Requêtes HTTP asynchrones.
