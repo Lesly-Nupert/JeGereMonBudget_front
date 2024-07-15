@@ -1,30 +1,28 @@
 <script>
+    import { onMount } from 'svelte';
     import { passwordReset, errorPasswordReset, successResetPassword } from "../store";
 
-    // let token = "";
+    let token = '';
+    let newPassword = '';
 
-    let token = new URLSearchParams(window.location.search).get('token');
+    // let token = new URLSearchParams(window.location.search).get('token');
 
-    // onMount(() => {
-    //     const params = new URLSearchParams(window.location.search);
-    //     token = params.get('token');
-    // });
+    onMount(() => {
+        const params = new URLSearchParams(window.location.search);
+        token = params.get('token');
+    });
 
    
     async function handleResetPassword() {
         try {
-            const data = {
-                password: $passwordReset,
-            };
-
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}resetPassword/${token}`,
+                `${import.meta.env.VITE_API_BASE_URL}/resetPassword/${token}`,
                 {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify({ newPassword })
                 },
             );
 
@@ -64,7 +62,7 @@
                     Entrer votre nouveau mot de passe <span aria-hidden="true">*</span>
                 </label>
                 <input
-                    bind:value={$passwordReset}
+                    bind:value={newPassword}
                     type="password"
                     class="form-control"
                     id="password"
