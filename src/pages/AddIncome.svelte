@@ -89,7 +89,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary form-control"
-                >Ajouter</button
+                >Ajouter le revenu</button
             >
 
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->

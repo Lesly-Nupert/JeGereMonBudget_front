@@ -90,7 +90,7 @@
 
 <main class="text-white text-center">
     <section class="formUpdatedIncome text-start">
-        <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Modifier un revenu</h1>
+        <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Modifier le revenu</h1>
         <form on:submit|preventDefault={handleUpdateExpense}>
             <div class="mb-3">
                 <label for="transaction_name" class="form-label fs-5">
@@ -121,7 +121,7 @@
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary form-control"
-                    >Modifier</button
+                    >Modifier le revenu</button
                 >
             </div>
             {#if $errorServerUpdatedIncome}

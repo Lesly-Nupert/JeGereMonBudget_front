@@ -128,7 +128,7 @@
             </div>
 
             <!-- * BUTTON -->
-            <button class="btn btn-primary form-control fs-5">Soumettre</button>
+            <button class="btn btn-primary form-control fs-5">Se connecter</button>
 
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $successLogin}
@@ -182,7 +182,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        padding: 0 20px;
     }
     h1 {
         font-family: 'Playwrite FR Moderne', sans-serif;

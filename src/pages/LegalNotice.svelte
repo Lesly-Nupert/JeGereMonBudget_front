@@ -4,7 +4,7 @@
           <section class="fs-5">
               <h2 class="display-2 text-info">Éditeur</h2>
               <p>Lesly Nupert</p>
-              <p>Contact : <a href="https://jegeremonbudget.netlify.app/#/contactUs">https://jegeremonbudget.netlify.app/#/contactUs</a></p>
+              <p>Contact : <a class="text-info" href="https://jegeremonbudget.netlify.app/#/contactUs" aria-label="Formulaire de contact">cliquer ici</a></p>
           </section>
 
           <section class="fs-5">
@@ -54,12 +54,12 @@
             Conformément à la loi Informatique et libertés du 6 janvier 1978 modifiée, vous disposez
             d'un droit d'accès, de rectification, de modification et de suppression des données qui
             vous concernent. Vous pouvez exercer ce droit en envoyant un courrier électronique à
-            l'adresse suivante : <a href="https://jegeremonbudget.netlify.app/#/contactUs" class="text-info">https://jegeremonbudget.netlify.app/#/contactUs</a>
+            l'adresse suivante : <a href="https://jegeremonbudget.netlify.app/#/contactUs" class="text-info" aria-label="Formulaire de contact">Cliquer ici</a>
           </p>
       </section>
       
       <section class="fs-5">
-          <p>Rédigé par <a href="https://jegeremonbudget.netlify.app/" class="text-info">https://jegeremonbudget.netlify.app/</a></p>
+          <p>Rédigé par <a href="https://jegeremonbudget.netlify.app/" class="text-info" aria-label="Accueil du site jeGèreMonBudget">JeGereMonBudget</a></p>
       </section>
     
   </main>

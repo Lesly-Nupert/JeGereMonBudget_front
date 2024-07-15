@@ -131,7 +131,7 @@
             </label>
         </div>
 
-        <button class="btn text-bg-info">Soumettre</button>
+        <button class="btn text-bg-info">Envoyer votre demande</button>
 
         {#if $success}
             <div
@@ -158,7 +158,8 @@
 <style>
     main {
         max-width: 600px;
-        margin: auto;
+        margin: 0 auto;
+        padding: 0 15px;
     }
 
     .btn:hover {

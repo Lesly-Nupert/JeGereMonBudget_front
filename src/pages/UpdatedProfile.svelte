@@ -119,7 +119,7 @@
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-info form-control"
-                    >Modifier</button
+                    >Modifier mes identifiants</button
                 >
             </div>
             {#if $errorServerUpdatedUserProfile}

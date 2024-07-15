@@ -112,7 +112,6 @@
 
         <button
             on:click={deleteProfile}
-            aria-label="Déconnexion"
             class="btnDisconnect btn btn-danger mt-0"
             type="submit">Supprimer mon compte définitivement</button
         >
