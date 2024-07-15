@@ -8,9 +8,12 @@
     // let token = new URLSearchParams(window.location.search).get('token');
 
     onMount(() => {
-        const params = new URLSearchParams(window.location.search);
-        token = params.get('token');
-    });
+    const hash = window.location.hash;
+    const tokenMatch = hash.match(/resetPassword\/(.+)/);
+    if (tokenMatch) {
+      token = tokenMatch[1];
+    }
+  });
 
    
     async function handleResetPassword() {
