@@ -89,6 +89,5 @@ export const successForgotPassword = writable("");
 export const errorEmailForgotPassword = writable("");
 
 // * RESET PASSWORD
-export const passwordReset = writable("");
 export const successResetPassword = writable("");
 export const errorPasswordReset = writable("");

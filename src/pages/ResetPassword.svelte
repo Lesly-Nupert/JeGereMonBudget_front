@@ -1,21 +1,26 @@
 <script>
     import { onMount } from 'svelte';
-    import { passwordReset, errorPasswordReset, successResetPassword } from "../store";
+    import { errorPasswordReset, successResetPassword } from "../store";
 
     let token = '';
     let newPassword = '';
 
-    // let token = new URLSearchParams(window.location.search).get('token');
+    // Code donné par chatgpt car je n'arrivais pas à récupérer le token
 
+    // Code à exécuter après le montage du composant (composant visible pour l'utilisateur)
     onMount(() => {
+     // Récupère le fragment d'URL après le # (hash)
     const hash = window.location.hash;
+
+    // Utilise une expression régulière pour trouver le token après 'resetPassword/'
     const tokenMatch = hash.match(/resetPassword\/(.+)/);
+
+    // Si un token est trouvé, l'assigner à la variable token
     if (tokenMatch) {
       token = tokenMatch[1];
     }
   });
 
-   
     async function handleResetPassword() {
         try {
             const response = await fetch(
