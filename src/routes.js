@@ -41,7 +41,7 @@ export default {
     "/user/:userId/updateProfile": UpdatedProfile,
     "/user/:userId/updatePassword": UpdatedPassword,
     "/forgotPassword": ForgotPassword,
-    "/resetPassword/:token": ResetPassword,
+    "#/resetPassword/:token": ResetPassword,
     "/contactUs": ContactUs,
     "/legalNotice": LegalNotice,
     "*": NotFound,
