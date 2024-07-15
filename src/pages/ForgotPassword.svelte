@@ -44,7 +44,7 @@
 
 
 <main class="text-light text-center">
-    <section class="formForgotPassword text-start">
+    <section class="formForgotPassword text-start pb-5 pt-5">
         <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Mot de passe oublié</h1>
         <form on:submit|preventDefault={handleForgotPassword}>
             <div class="mb-3">
@@ -61,7 +61,8 @@
                     placeholder=" "
                 />
             </div>
-            <button type="submit" class="btn btn-primary" aria-label="Envoyer la demande de réinitialisation du mot de passe">Envoyer</button>
+
+            <button type="submit" class="btn btn-primary form-control" aria-label="Envoyer la demande de réinitialisation du mot de passe">Envoyer</button>
 
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $errorEmailForgotPassword}

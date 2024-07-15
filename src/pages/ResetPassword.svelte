@@ -56,7 +56,7 @@
 
 
 <main class="text-light text-center">
-    <section class="formResetPassword text-start">
+    <section class="formResetPassword text-start pb-5 pt-5">
         <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Réinitialiser votre mot de passe</h1>
         <form on:submit|preventDefault={handleResetPassword}>
             <div class="mb-3">
@@ -73,7 +73,9 @@
                 />
             </div>
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Réinitialiser</button>
+
+                <button type="submit" class="btn btn-primary form-control">Réinitialiser</button>
+                
             </div>
             {#if $errorPasswordReset}
                 <div class="alert alert-danger" role="alert">
