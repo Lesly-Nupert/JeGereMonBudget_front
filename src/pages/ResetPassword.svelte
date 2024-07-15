@@ -84,12 +84,12 @@
 
             </div>
             {#if $errorPasswordReset}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" role="alert" aria-live="assertive">
                     {$errorPasswordReset}
                 </div>
             {/if}
             {#if $successResetPassword}
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert" aria-live="assertive">
                     {$successResetPassword}
                 </div>
             {/if}
@@ -109,13 +109,6 @@
     h1 {
         font-family: 'Playwrite FR Moderne', sans-serif;
     }
-
-    /* .successAddExpense,
-    .errorServerAddExpense {
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 5px;
-    } */
 
     .btn:hover {
         font-weight: bold;

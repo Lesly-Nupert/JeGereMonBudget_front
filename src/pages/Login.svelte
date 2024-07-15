@@ -135,7 +135,7 @@
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $successLogin}
                 <div
-                    class="success text-success"
+                    class="alert alert-success" 
                     role="alert"
                     aria-live="assertive"
                 >

@@ -32,9 +32,8 @@
             $successForgotPassword = "Un email de réinitialisation vous a été envoyé !";
 
             setTimeout(() => {
-                window.location.href = `#/login`;
                 window.location.reload();
-            }, 1000);
+            }, 3000);
         } catch (error) {
             $errorEmailForgotPassword = "Erreur veuillez réessayer.";
             console.error("Erreur réseau", error);
@@ -89,14 +88,6 @@
     h1 {
         font-family: 'Playwrite FR Moderne', sans-serif;
     }
-
-    /* .successAddExpense,
-    .errorServerAddExpense {
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 5px;
-    } */
-
     .btn:hover {
         font-weight: bolder;
     }
