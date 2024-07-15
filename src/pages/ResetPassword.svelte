@@ -16,7 +16,7 @@
     async function handleResetPassword() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}/resetPassword/${token}`,
+                `${import.meta.env.VITE_API_BASE_URL}resetPassword/${token}`,
                 {
                     method: "PATCH",
                     headers: {
