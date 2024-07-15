@@ -52,7 +52,7 @@
     }
 </script>
 
-<main class="text-white text-center">
+<main class="text-light text-center">
     <section class="formaddExpense text-start">
         <h1 class="text-center mb-5 mt-2 fs-1 text-primary">Ajouter une dépense</h1>
         <form on:submit|preventDefault={handleAddIncome}>

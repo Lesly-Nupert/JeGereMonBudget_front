@@ -16,6 +16,8 @@ import UpdatedAccount from "./pages/UpdatedAccount.svelte";
 import UserProfile from "./pages/UserProfile.svelte";
 import UpdatedProfile from "./pages/UpdatedProfile.svelte";
 import UpdatedPassword from "./pages/UpdatedPassword.svelte";
+import ForgotPassword from "./pages/ForgotPassword.svelte";
+import ResetPassword from "./pages/ResetPassword.svelte";
 import ContactUs from "./pages/ContactUs.svelte";
 import LegalNotice from "./pages/LegalNotice.svelte";
 import NotFound from "./pages/NotFound.svelte";
@@ -38,6 +40,8 @@ export default {
     "/userProfile/:userId": UserProfile,
     "/user/:userId/updateProfile": UpdatedProfile,
     "/user/:userId/updatePassword": UpdatedPassword,
+    "/forgotPassword": ForgotPassword,
+    "/resetPassword/:token": ResetPassword,
     "/contactUs": ContactUs,
     "/legalNotice": LegalNotice,
     "*": NotFound,
