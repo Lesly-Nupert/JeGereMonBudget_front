@@ -48,7 +48,7 @@
         <ul >
             {#each accounts as account}
                 <li>
-                    <a href={`#/accountWithTransactions/${account.id}`} class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" use:link>
+                    <a href={`#/accountWithTransactions/${account.id}`} class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" aria-label="Accès à la balance du compte et la liste des transcations" use:link>
                         <p class="fs-5"><i class="bi bi-arrow-right-short"></i> {account.account_name}</p>
                         
                     </a>

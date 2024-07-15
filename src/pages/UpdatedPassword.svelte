@@ -129,7 +129,7 @@
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-info form-control"
-                    >Modifier</button
+                    >Modifier le mot de passe</button
                 >
             </div>
 

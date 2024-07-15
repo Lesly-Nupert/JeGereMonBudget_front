@@ -102,7 +102,7 @@
                     aria-required
                 />   
                 
-                <button type="submit" class="btn btn-primary form-control mt-3">Modifier</button>
+                <button type="submit" class="btn btn-primary form-control mt-3">Modifier le compte</button>
 
                 <div class="errorServerAccountNameUpdated text-danger">
                     {#if $errorServerAccountNameUpdated}
