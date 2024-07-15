@@ -75,7 +75,7 @@
             <div class="mb-3">
 
                 <button type="submit" class="btn btn-primary form-control">Réinitialiser</button>
-                
+
             </div>
             {#if $errorPasswordReset}
                 <div class="alert alert-danger" role="alert">
@@ -112,6 +112,6 @@
     } */
 
     .btn:hover {
-        font-weight: bolder;
+        font-weight: bold;
     }
 </style>
