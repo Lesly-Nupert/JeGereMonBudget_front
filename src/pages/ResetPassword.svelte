@@ -112,6 +112,6 @@
     } */
 
     .btn:hover {
-        font-weight: bold;
+        font-weight: bolder;
     }
 </style>
