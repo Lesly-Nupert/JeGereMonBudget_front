@@ -130,6 +130,8 @@
             <!-- * BUTTON -->
             <button class="btn btn-primary form-control fs-5">Se connecter</button>
 
+            <a href="/forgotPassword" class="text-center d-block text-info mt-2" aria-label="Accès à la page J'ai oublié mon mot de passe">J'ai oublié mon mot de passe</a>
+
             <!-- * MESSAGE D'ERREUR OU DE SUCCÈS -->
             {#if $successLogin}
                 <div
