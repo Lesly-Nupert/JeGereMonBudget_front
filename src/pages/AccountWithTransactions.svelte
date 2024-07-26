@@ -85,7 +85,7 @@
                     {#if transaction.type === "revenus"}
                         <a class="linkTransaction btn btn-outline-light" aria-label="Détails du revenu" href={`#/account/${accountId}/income/${transaction.id}`}>
                             <span>{transaction.transaction_name}</span>
-                            <span>{transaction.amount}€</span>
+                            <span class="incomeGreen">+{transaction.amount}€</span>
                         </a>
                     {:else if transaction.type === "depenses"}
                         <a class="linkTransaction btn btn-outline-light" aria-label="Détails de la dépense" href={`#/account/${accountId}/expense/${transaction.id}`}>
@@ -145,5 +145,8 @@
     }
     .selectorMonthYear label {
         margin-right: 10px;
+    }
+    .incomeGreen {
+        color: #00FF00;
     }
 </style>
